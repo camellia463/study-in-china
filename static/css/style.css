@@ -74,7 +74,17 @@ body::before {
   inset: 0;
   z-index: -1;
   background: url('../img/bg2.jpg') center/cover no-repeat;
-  opacity: 0.95;
+  opacity: 0.12;
+  filter: grayscale(1) brightness(1.3);
+  pointer-events: none;
+}
+/* 浮雕背景上叠加白色蒙版，确保内容清晰 */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(180deg, rgba(255,255,255,.88) 0%, rgba(255,255,255,.82) 100%);
   pointer-events: none;
 }
 
@@ -2976,13 +2986,31 @@ body.lang-en-active .uni-card-name-en { display: none !important; }
   border-radius: 16px;
   overflow: hidden;
   aspect-ratio: 4 / 3;
-  box-shadow: 0 8px 32px rgba(0,0,0,.08);
+  position: relative;
+  background: #fff;
+  border: 1px solid var(--border-light);
+  box-shadow: 0 4px 24px rgba(124,58,237,.06);
 }
 .why-split-image img {
   width: 100%; height: 100%; object-fit: cover;
-  transition: transform .6s ease;
+  /* 浮雕风格：灰度 + 高亮度 + 低对比 + 低饱和 */
+  filter: grayscale(1) brightness(1.6) contrast(0.75) saturate(0.3);
+  opacity: 0.5;
+  transition: all .6s ease;
 }
-.why-split:hover .why-split-image img { transform: scale(1.04); }
+/* 浮雕白色蒙版 */
+.why-split-image::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,.72) 0%, rgba(255,255,255,.55) 100%);
+  pointer-events: none;
+}
+.why-split:hover .why-split-image img {
+  filter: grayscale(0.6) brightness(1.2) contrast(0.9) saturate(0.6);
+  opacity: 0.75;
+  transform: scale(1.03);
+}
 
 @media (max-width: 980px) {
   .why-split { grid-template-columns: 1fr; gap: 32px; padding: 40px 0; }
@@ -3158,10 +3186,25 @@ body.lang-en-active .uni-card-name-en { display: none !important; }
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform .6s ease;
+  /* 浮雕风格 */
+  filter: grayscale(1) brightness(1.5) contrast(0.8) saturate(0.3);
+  opacity: 0.55;
+  transition: all .6s ease;
 }
 
-.why-culture-item:hover img { transform: scale(1.05); }
+.why-culture-item::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(255,255,255,.5) 0%, rgba(255,255,255,.3) 50%, rgba(255,255,255,.7) 100%);
+  pointer-events: none;
+}
+
+.why-culture-item:hover img {
+  filter: grayscale(0.5) brightness(1.15) contrast(0.9) saturate(0.6);
+  opacity: 0.8;
+  transform: scale(1.05);
+}
 
 .why-culture-item figcaption {
   position: absolute;
@@ -3169,21 +3212,22 @@ body.lang-en-active .uni-card-name-en { display: none !important; }
   left: 0;
   right: 0;
   padding: 16px 18px;
-  background: linear-gradient(180deg, transparent, rgba(0,0,0,.75));
+  background: linear-gradient(180deg, transparent, rgba(255,255,255,.85));
   display: flex;
   flex-direction: column;
   gap: 2px;
+  z-index: 1;
 }
 
 .why-culture-zh {
   font-size: 16px;
   font-weight: 600;
-  color: #fff;
+  color: var(--text);
 }
 
 .why-culture-en {
   font-size: 11px;
-  color: rgba(255,255,255,.8);
+  color: var(--text-muted);
   letter-spacing: 0.03em;
 }
 
