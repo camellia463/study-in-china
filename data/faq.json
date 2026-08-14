@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "question": "留学生宿舍条件如何？",
+    "question_en": "What are the dormitory conditions for international students?",
+    "answer": "多数高校为留学生提供专门公寓，通常为双人间或单人间，配备空调、独立卫浴、热水器、书桌衣柜等基本设施，部分宿舍楼还设有公共厨房、洗衣房和自习室。床位由学校统一分配，入学前可通过国际学生办公室在线申请。住宿费因城市和学校而异，一般每年 2,000–8,000 元人民币。学生也可选择校外租房，但建议入学第一年先住校以便适应环境。",
+    "answer_en": "Most universities offer dedicated apartments for international students, usually double or single rooms equipped with air conditioning, private bathroom, water heater, desk and wardrobe. Some dormitory buildings also have shared kitchens, laundry rooms and study rooms. Beds are allocated by the university and can be applied for online through the international student office before enrollment. Accommodation fees vary by city and school, generally 2,000–8,000 RMB per year. Students may also rent off-campus, but it is recommended to live on campus in the first year to adapt to the environment."
+  },
+  {
+    "id": 2,
+    "question": "校园餐饮有哪些选择？",
+    "question_en": "What dining options are available on campus?",
+    "answer": "中国大学校园食堂菜式丰富，涵盖八大菜系，价格亲民，一顿正餐通常 8–25 元。多数大型食堂设有清真窗口，满足穆斯林学生饮食需求。校园周边通常有奶茶店、便利店、快餐店和小餐馆。部分留学生公寓设有公共厨房，可自行烹饪。外卖平台（美团、饿了么）覆盖全面，30 分钟内即可送达各类中西餐。",
+    "answer_en": "Chinese university canteens offer a rich variety of dishes covering the eight major cuisines, at affordable prices — a full meal usually costs 8–25 RMB. Most large canteens have halal windows to meet Muslim students' dietary needs. Around campuses there are usually milk tea shops, convenience stores, fast food outlets and small restaurants. Some international student apartments have shared kitchens for self-cooking. Food delivery platforms (Meituan, Ele.me) are fully covered, delivering all kinds of Chinese and Western food within 30 minutes."
+  },
+  {
+    "id": 3,
+    "question": "有哪些社团和文化活动可以参加？",
+    "question_en": "What clubs and cultural activities can I join?",
+    "answer": "中国高校社团文化非常活跃，每所大学都有数十至上百个学生社团，涵盖学术、文艺、体育、志愿服务、国际交流等类别。留学生可加入书法社、太极社、汉服社、茶艺社等传统文化社团，也可参加留学生会、国际文化节、汉语演讲比赛、中秋端午节日庆典等活动。学校通常每学期初举办社团招新百团大战，现场报名即可加入。这是结交中国朋友、融入校园生活的最佳途径。",
+    "answer_en": "Chinese university club culture is very active, with each university having dozens to hundreds of student societies covering academic, artistic, sports, volunteer and international exchange categories. International students can join calligraphy, Tai Chi, Hanfu and tea ceremony clubs, and participate in the international student union, international cultural festivals, Chinese speech contests, and Mid-Autumn and Dragon Boat Festival celebrations. Universities usually hold a club recruitment fair at the beginning of each semester — just sign up on site. This is the best way to make Chinese friends and integrate into campus life."
+  },
+  {
+    "id": 4,
+    "question": "网络、通讯和快递怎么解决？",
+    "question_en": "How do I handle internet, mobile plans and package delivery?",
+    "answer": "校园 Wi-Fi 全覆盖，宿舍可办理宽带（移动/联通/电信，月费 30–80 元）。手机卡可在校内营业厅或机场办理，推荐选择留学生套餐（含流量+国际长途），月费约 50–100 元。网购和快递极其便利，淘宝、京东、拼多多覆盖全国，快递通常 2–5 天送达，校内均设有快递驿站（菜鸟驿站），凭取件码自助取件。手机支付（微信、支付宝）是主流，建议抵华后立即开通。",
+    "answer_en": "Campus Wi-Fi is fully covered, and broadband can be set up in dormitories (China Mobile/Unicom/Telecom, 30–80 RMB/month). SIM cards can be purchased at on-campus stores or airports, with international student plans (data + international calls) recommended at about 50–100 RMB/month. Online shopping and delivery are extremely convenient — Taobao, JD.com and Pinduoduo cover the whole country, with packages usually arriving in 2–5 days. There are campus delivery stations (Cainiao Post) where you pick up packages with a pickup code. Mobile payment (WeChat Pay, Alipay) is the mainstream — it is recommended to set it up immediately upon arrival."
+  },
+  {
+    "id": 5,
+    "question": "生病了怎么办？医疗保险怎么用？",
+    "question_en": "What if I get sick? How does medical insurance work?",
+    "answer": "留学生入学时需购买综合医疗保险（约 600–800 元/年），覆盖门诊、住院和意外伤害。校内设有校医院，看普通门诊方便且费用低（挂号费约 5–10 元）。如需专科治疗可前往校外三甲医院，部分费用可凭票据报销。建议保存校医院急诊电话和学校国际学生办公室联系方式。多数大学还提供免费心理咨询（中文/英文），关注学生心理健康。",
+    "answer_en": "International students are required to purchase comprehensive medical insurance upon enrollment (about 600–800 RMB/year), covering outpatient, inpatient and accidental injury. There is a campus hospital for general outpatient visits, which is convenient and low-cost (registration fee about 5–10 RMB). For specialist treatment, you can go to off-campus top-tier (Grade 3A) hospitals, with some costs reimbursable with receipts. It is recommended to save the campus hospital emergency number and the international student office contact. Most universities also offer free psychological counseling (Chinese/English)."
+  },
+  {
+    "id": 6,
+    "question": "有哪些节假日可以体验中国文化？",
+    "question_en": "What holidays are available to experience Chinese culture?",
+    "answer": "中国法定节假日丰富，留学生均可享受。春节（寒假，约 1 个月）可体验贴春联、包饺子、逛庙会；清明端午中秋各有特色活动（踏青、包粽子、赏月）；国庆假期（10 月 1–7 日）是出游黄金周，适合游览长城、故宫、桂林等名胜。学校在传统节日常组织留学生文化体验活动，如书法、茶道、汉服试穿、功夫体验等。寒暑假期间可参加学校组织的文化考察团，深入各地感受中国风土人情。",
+    "answer_en": "China has rich statutory holidays that international students can all enjoy. During the Spring Festival (winter vacation, about 1 month) you can experience couplets, dumplings and temple fairs; Qingming, Dragon Boat and Mid-Autumn festivals each have special activities (spring outings, making zongzi, moon-gazing); the National Day holiday (October 1–7) is a golden week for travel, ideal for visiting the Great Wall, Forbidden City, Guilin and other attractions. Schools often organize cultural experience activities for international students during traditional festivals, such as calligraphy, tea ceremony, Hanfu try-on and kung fu experience. During winter and summer vacations, you can join school-organized cultural study tours to experience local customs across China."
+  }
+]

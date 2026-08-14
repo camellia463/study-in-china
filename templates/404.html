@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}404 · 页面未找到 / Page Not Found{% endblock %}
+{% block title_zh %}404 · 页面未找到{% endblock %}
+{% block title_en %}404 · Page Not Found{% endblock %}
+
+{% block content %}
+<section class="not-found">
+  <div class="container center">
+    <div class="nf-seal">404</div>
+    <h1 class="nf-title"><span class="lang-zh">页面未找到</span><span class="lang-en" style="display:none;">Page Not Found</span></h1>
+    <p class="nf-desc"><span class="lang-zh">你访问的页面不存在或已被移除。</span><span class="lang-en" style="display:none;">The page you are looking for does not exist or has been removed.</span></p>
+    <a href="{{ url_for('index') }}" class="btn btn-primary"><span class="lang-zh">返回首页</span><span class="lang-en" style="display:none;">Back to Home</span></a>
+  </div>
+</section>
+{% endblock %}

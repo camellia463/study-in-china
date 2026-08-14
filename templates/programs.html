@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+{% block title %}专业选择 · Programs · 捷报神州{% endblock %}
+{% block title_zh %}专业选择 · 捷报神州{% endblock %}
+{% block title_en %}Programs · Victell{% endblock %}
+
+{% block content %}
+<section class="programs-page">
+  <div class="container">
+    <div class="section-head" style="text-align: left; margin-bottom: 32px;">
+      <div class="section-eyebrow" style="margin: 0 0 12px;">PROGRAMS</div>
+      <h2 class="section-title" style="text-align: left;">
+        <span class="lang-zh">专业选择 · 量体裁衣</span>
+        <span class="lang-en" style="display:none;">Programs · Tailored to You</span>
+      </h2>
+      <p class="section-sub" style="margin: 0;">
+        <span class="lang-zh">按学科门类或地区筛选心仪院校</span>
+        <span class="lang-en">Filter universities by discipline or region</span>
+      </p>
+    </div>
+
+    <div class="programs-layout">
+      <!-- 筛选器 -->
+      <aside class="programs-filter" id="programFilter">
+        <div class="filter-group">
+          <div class="filter-label">
+            <span class="lang-zh">学科门类</span><span class="lang-en" style="display:none;">Discipline</span>
+          </div>
+          <div class="filter-options">
+            <div class="filter-opt active" data-field="">
+              <span data-zh="全部" data-en="All">全部</span>
+            </div>
+            {% for f in fields %}
+            <div class="filter-opt" data-field="{{ f }}"><span data-zh="{{ f }}" data-en="{{ field_en_map.get(f, f) }}">{{ f }}</span></div>
+            {% endfor %}
+          </div>
+        </div>
+        <div class="filter-group">
+          <div class="filter-label">
+            <span class="lang-zh">所在省份</span><span class="lang-en" style="display:none;">Province</span>
+          </div>
+          <div class="filter-options">
+            <div class="filter-opt active" data-province="">
+              <span data-zh="全部" data-en="All">全部</span>
+            </div>
+            {% for p in provinces %}
+            <div class="filter-opt" data-province="{{ p }}">
+              <span data-zh="{{ p }}" data-en="{{ province_en_map.get(p, p) }}">{{ p }}</span>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+        <div style="padding: 16px 12px; background: var(--paper-warm); margin-top: 8px; border-left: 3px solid var(--gold); font-size: 12px; color: var(--dai); line-height: 1.8; font-family: var(--serif);">
+          <span class="lang-zh">提示：可同时按学科与省份双重筛选</span>
+          <span class="lang-en" style="display:none;">Tip: Filter by both discipline and province at once</span>
+        </div>
+      </aside>
+
+      <!-- 结果区 -->
+      <div class="programs-results">
+        {% for u in universities %}
+        {% for p in u.programs %}
+        <a href="{{ url_for('university_detail', uid=u.id) }}"
+           class="program-card"
+           data-field="{{ p }}"
+           data-province="{{ u.province }}">
+          <div class="program-card-seal"><img src="{{ u.badge }}" alt="{{ u.name }} {{ u.name_en }} Emblem" data-alt-en="{{ u.name_en }} Emblem"></div>
+          <div class="program-card-body">
+            <div class="program-card-uni">
+              <span class="lang-zh">{{ u.name }}</span><span class="lang-en" style="display:none;">{{ u.name_en }}</span>
+              <span class="lang-zh" style="font-size: 12px; color: var(--dai); font-style: italic; font-family: Georgia;">· {{ u.name_en }}</span>
+            </div>
+            <div style="font-size: 12px; color: var(--dai); font-family: var(--serif);">
+              <span class="lang-zh">「{{ p }}」 · {{ u.province }}</span>
+              <span class="lang-en" style="display:none;">"{{ u.programs_en[loop.index0] if u.programs_en and loop.index0 < u.programs_en|length else p }}" · {{ u.province_en }}</span>
+            </div>
+            <div class="program-card-programs">
+              {% for pp in u.programs[:4] %}
+              <span class="program-card-mini">
+                <span class="lang-zh">{{ pp }}</span>
+                <span class="lang-en" style="display:none;">{{ u.programs_en[loop.index0] if u.programs_en and loop.index0 < u.programs_en|length else pp }}</span>
+              </span>
+              {% endfor %}
+            </div>
+          </div>
+          <div class="program-card-arrow">→</div>
+        </a>
+        {% endfor %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

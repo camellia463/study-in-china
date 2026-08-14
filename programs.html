@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>专业选择 · Programs · 捷报神州</title>
+  <meta name="title-zh" content="专业选择 · 捷报神州">
+  <meta name="title-en" content="Programs · Victell">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <link rel="stylesheet" href="static/css/style.css?v=20260814">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+</head>
+<body>
+
+  <!-- 启动动画 -->
+  <div id="loader" class="loader">
+    <div class="loader-inner">
+      <div class="loader-seal">
+        <img src="static/img/logo.jpg" alt="Victell logo" class="loader-logo">
+      </div>
+      <div class="loader-text">
+        <span class="loader-zh">
+          <span>风传捷报</span>
+          <span class="loader-dot">·</span>
+          <span>翼启神州</span>
+        </span>
+        <span class="loader-en">For China, Fly Victory!</span>
+      </div>
+      <div class="loader-bar"><span></span></div>
+    </div>
+  </div>
+
+  <!-- 导航栏 -->
+  <header class="navbar" id="navbar">
+    <div class="container nav-inner">
+      <a href="index.html" class="brand">
+        <span class="brand-seal">
+          <img src="static/img/logo.jpg" alt="logo">
+        </span>
+        <span class="brand-text">
+          <span class="brand-zh lang-zh">捷报神州</span>
+          <span class="brand-en lang-en" style="display:none;">Victell</span>
+        </span>
+      </a>
+      <nav class="nav-links">
+        <a href="index.html"><span class="nav-label" data-zh="主页" data-en="Home">主页</span></a>
+        <a href="map.html"><span class="nav-label" data-zh="城市" data-en="Cities">城市</span></a>
+        <a href="universities.html"><span class="nav-label" data-zh="大学" data-en="Universities">大学</span></a>
+        <a href="programs.html" class="active"><span class="nav-label" data-zh="专业" data-en="Programs">专业</span></a>
+        <a href="why-china.html"><span class="nav-label" data-zh="为什么中国" data-en="Why China">为什么中国</span></a>
+        <a href="about.html"><span class="nav-label" data-zh="我们是谁" data-en="About">我们是谁</span></a>
+      </nav>
+      <div class="nav-actions">
+        <div class="lang-switch" id="langSwitch" title="切换语言 / Switch Language">
+          <button type="button" data-lang="zh" class="active">中</button>
+          <span class="lang-divider">·</span>
+          <button type="button" data-lang="en">EN</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- 主体内容 -->
+  <main class="main">
+    <section class="programs-page">
+      <div class="container">
+        <div class="section-head" style="text-align: left; margin-bottom: 32px;">
+          <div class="section-eyebrow" style="margin: 0 0 12px;">PROGRAMS</div>
+          <h2 class="section-title" style="text-align: left;">
+            <span class="lang-zh">专业选择 · 量体裁衣</span>
+            <span class="lang-en" style="display:none;">Programs · Tailored to You</span>
+          </h2>
+          <p class="section-sub" style="margin: 0;">
+            <span class="lang-zh">按学科门类或地区筛选心仪院校</span>
+            <span class="lang-en" style="display:none;">Filter universities by discipline or region</span>
+          </p>
+        </div>
+
+        <div class="programs-layout">
+          <!-- 筛选器 -->
+          <aside class="programs-filter" id="programFilter">
+            <div class="filter-group">
+              <div class="filter-label">
+                <span class="lang-zh">学科门类</span><span class="lang-en" style="display:none;">Discipline</span>
+              </div>
+              <div class="filter-options" id="fieldFilters">
+                <div class="filter-opt active" data-field="">
+                  <span data-zh="全部" data-en="All">全部</span>
+                </div>
+              </div>
+            </div>
+            <div class="filter-group">
+              <div class="filter-label">
+                <span class="lang-zh">所在省份</span><span class="lang-en" style="display:none;">Province</span>
+              </div>
+              <div class="filter-options" id="provinceFilters">
+                <div class="filter-opt active" data-province="">
+                  <span data-zh="全部" data-en="All">全部</span>
+                </div>
+              </div>
+            </div>
+            <div style="padding: 16px 12px; background: var(--paper-warm); margin-top: 8px; border-left: 3px solid var(--gold); font-size: 12px; color: var(--dai); line-height: 1.8; font-family: var(--serif);">
+              <span class="lang-zh">提示：可同时按学科与省份双重筛选</span>
+              <span class="lang-en" style="display:none;">Tip: Filter by both discipline and province at once</span>
+            </div>
+          </aside>
+
+          <!-- 结果区 -->
+          <div class="programs-results" id="programsResults">
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- 页脚 -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <span class="footer-zh lang-zh">捷报神州</span>
+        <span class="footer-en lang-en" style="display:none;">Victell</span>
+      </div>
+      <div class="footer-addr">
+        <span class="lang-zh">江西省南昌市青山湖区香溢花城一区九栋</span><span class="lang-en" style="display:none;">No.9 Building, Zone 1, Xiangyi Huacheng, Qingshanhu District, Nanchang, Jiangxi</span>
+      </div>
+      <div class="footer-copy"><span class="lang-zh">© 2026 捷报神州 · 来华留学指南</span><span class="lang-en" style="display:none;">© 2026 Victell · Study in China Guide</span></div>
+    </div>
+  </footer>
+
+  <script src="static/js/common.js?v=20260814"></script>
+  <script>
+    /* ============================================================
+       专业选择页 - 客户端筛选与渲染
+       ============================================================ */
+
+    (function initProgramsPage() {
+      var resultsEl = document.getElementById('programsResults');
+      var fieldFiltersEl = document.getElementById('fieldFilters');
+      var provinceFiltersEl = document.getElementById('provinceFilters');
+      var allUniversities = [];
+      var allCards = []; // { uni, programZh, programEn, programIndex }
+
+      // 从所有大学中提取 (大学, 专业) 组合
+      function buildCards(data) {
+        var cards = [];
+        data.forEach(function(u) {
+          (u.programs || []).forEach(function(p, i) {
+            cards.push({
+              uni: u,
+              programZh: p,
+              programEn: (u.programs_en && u.programs_en[i]) ? u.programs_en[i] : p,
+              programIndex: i
+            });
+          });
+        });
+        return cards;
+      }
+
+      // 构建筛选选项
+      function buildFilters(data) {
+        // 收集所有唯一的 field 和 province
+        var fieldMap = new Map();
+        var provinceMap = new Map();
+
+        data.forEach(function(u) {
+          (u.programs || []).forEach(function(p, i) {
+            if (!fieldMap.has(p)) {
+              fieldMap.set(p, (u.programs_en && u.programs_en[i]) ? u.programs_en[i] : p);
+            }
+          });
+          if (u.province && !provinceMap.has(u.province)) {
+            provinceMap.set(u.province, u.province_en || u.province);
+          }
+        });
+
+        var fieldEntries = Array.from(fieldMap.entries()).sort();
+        var provinceEntries = Array.from(provinceMap.entries()).sort();
+
+        // 渲染学科门类
+        var fieldHtml = '<div class="filter-opt active" data-field=""><span data-zh="全部" data-en="All">全部</span></div>';
+        fieldEntries.forEach(function(entry) {
+          fieldHtml += '<div class="filter-opt" data-field="' + entry[0] + '"><span data-zh="' + entry[0] + '" data-en="' + entry[1] + '">' + entry[0] + '</span></div>';
+        });
+        fieldFiltersEl.innerHTML = fieldHtml;
+
+        // 渲染省份
+        var provHtml = '<div class="filter-opt active" data-province=""><span data-zh="全部" data-en="All">全部</span></div>';
+        provinceEntries.forEach(function(entry) {
+          provHtml += '<div class="filter-opt" data-province="' + entry[0] + '"><span data-zh="' + entry[0] + '" data-en="' + entry[1] + '">' + entry[0] + '</span></div>';
+        });
+        provinceFiltersEl.innerHTML = provHtml;
+
+        bindFilterEvents();
+      }
+
+      // 获取当前选中的筛选条件
+      function getSelectedFilters() {
+        var fieldActive = fieldFiltersEl.querySelector('.filter-opt.active');
+        var provActive = provinceFiltersEl.querySelector('.filter-opt.active');
+        return {
+          field: fieldActive ? (fieldActive.dataset.field || '') : '',
+          province: provActive ? (provActive.dataset.province || '') : ''
+        };
+      }
+
+      // 绑定筛选事件
+      function bindFilterEvents() {
+        var fieldOpts = fieldFiltersEl.querySelectorAll('.filter-opt');
+        var provOpts = provinceFiltersEl.querySelectorAll('.filter-opt');
+
+        fieldOpts.forEach(function(opt) {
+          opt.addEventListener('click', function() {
+            var field = opt.dataset.field;
+            fieldOpts.forEach(function(o) { o.classList.remove('active'); });
+            opt.classList.add('active');
+            applyFilter();
+          });
+        });
+
+        provOpts.forEach(function(opt) {
+          opt.addEventListener('click', function() {
+            var province = opt.dataset.province;
+            provOpts.forEach(function(o) { o.classList.remove('active'); });
+            opt.classList.add('active');
+            applyFilter();
+          });
+        });
+      }
+
+      // 筛选并渲染卡片
+      function applyFilter() {
+        var sel = getSelectedFilters();
+        var filtered = allCards.filter(function(card) {
+          var cardField = card.programZh || '';
+          var cardProvince = card.uni.province || '';
+          if (sel.field && cardField !== sel.field) return false;
+          if (sel.province && cardProvince !== sel.province) return false;
+          return true;
+        });
+        renderCards(filtered);
+      }
+
+      // 渲染程序卡片
+      function renderCards(cards) {
+        var lang = window.getLang ? window.getLang() : (localStorage.getItem('lang') || 'zh');
+        var isEn = lang === 'en';
+
+        if (!cards.length) {
+          resultsEl.innerHTML = '<div style="padding:36px;text-align:center;color:var(--dai);font-family:var(--serif);" class="lang-zh">无匹配专业</div><div style="padding:36px;text-align:center;color:var(--dai);font-family:var(--serif);display:none;" class="lang-en">No results</div>';
+          return;
+        }
+
+        resultsEl.innerHTML = cards.map(function(card) {
+          var u = card.uni;
+          var nameZh = u.name;
+          var nameEn = u.name_en || '';
+          var badge = u.badge || '';
+          var provinceZh = u.province || '';
+          var provinceEn = u.province_en || '';
+          var programZh = card.programZh;
+          var programEn = card.programEn;
+
+          // 迷你标签：大学前 4 个专业
+          var miniTags = '';
+          var programs = u.programs || [];
+          var programsEn = u.programs_en || [];
+          for (var i = 0; i < Math.min(programs.length, 4); i++) {
+            var pZh = programs[i];
+            var pEn = (programsEn[i]) ? programsEn[i] : pZh;
+            miniTags += '<span class="program-card-mini"><span class="lang-zh">' + pZh + '</span><span class="lang-en" style="display:none;">' + pEn + '</span></span>';
+          }
+
+          return '<a href="university.html?id=' + u.id + '" class="program-card" data-field="' + programZh + '" data-province="' + provinceZh + '">' +
+            '<div class="program-card-seal"><img src="' + badge + '" alt="' + nameZh + ' ' + nameEn + ' Emblem" data-alt-en="' + nameEn + ' Emblem"></div>' +
+            '<div class="program-card-body">' +
+              '<div class="program-card-uni">' +
+                '<span class="lang-zh">' + nameZh + '</span><span class="lang-en" style="display:none;">' + nameEn + '</span>' +
+                '<span class="lang-zh" style="font-size:12px;color:var(--dai);font-style:italic;font-family:Georgia;">· ' + nameEn + '</span>' +
+              '</div>' +
+              '<div style="font-size:12px;color:var(--dai);font-family:var(--serif);">' +
+                '<span class="lang-zh">「' + programZh + '」 · ' + provinceZh + '</span>' +
+                '<span class="lang-en" style="display:none;">"' + programEn + '" · ' + provinceEn + '</span>' +
+              '</div>' +
+              '<div class="program-card-programs">' +
+                miniTags +
+              '</div>' +
+            '</div>' +
+            '<div class="program-card-arrow">→</div>' +
+          '</a>';
+        }).join('');
+
+        // 重新应用语言
+        reapplyLang();
+      }
+
+      function reapplyLang() {
+        var lang = window.getLang ? window.getLang() : (localStorage.getItem('lang') || 'zh');
+        var isEn = lang === 'en';
+
+        // 更新筛选器文本
+        document.querySelectorAll('#programFilter [data-zh][data-en]').forEach(function(el) {
+          el.textContent = isEn ? el.dataset.en : el.dataset.zh;
+        });
+
+        // 更新卡片内 .lang-zh / .lang-en
+        document.querySelectorAll('#programsResults .lang-zh').forEach(function(el) {
+          el.style.display = isEn ? 'none' : '';
+          var tag = el.tagName.toLowerCase();
+          if (!isEn && (tag === 'span' || tag === 'a' || tag === 'button')) {
+            el.style.display = 'inline';
+          } else if (!isEn && (tag === 'p' || tag === 'div' || tag === 'h1' || tag === 'h2' || tag === 'h3' || tag === 'h4' || tag === 'li')) {
+            el.style.display = 'block';
+          }
+        });
+        document.querySelectorAll('#programsResults .lang-en').forEach(function(el) {
+          el.style.display = isEn ? '' : 'none';
+          var tag = el.tagName.toLowerCase();
+          if (isEn && (tag === 'span' || tag === 'a' || tag === 'button')) {
+            el.style.display = 'inline';
+          } else if (isEn && (tag === 'p' || tag === 'div' || tag === 'h1' || tag === 'h2' || tag === 'h3' || tag === 'h4' || tag === 'li')) {
+            el.style.display = 'block';
+          }
+        });
+
+        // 更新图片 alt
+        document.querySelectorAll('#programsResults img[data-alt-en]').forEach(function(el) {
+          if (!el.hasAttribute('data-alt-zh')) el.setAttribute('data-alt-zh', el.getAttribute('alt') || '');
+          el.setAttribute('alt', isEn ? el.getAttribute('data-alt-en') : el.getAttribute('data-alt-zh'));
+        });
+      }
+
+      function init() {
+        if (!window.APP_DATA || !window.APP_DATA.loadPromise) {
+          setTimeout(init, 100);
+          return;
+        }
+
+        window.APP_DATA.loadPromise.then(function(data) {
+          allUniversities = data || [];
+          allCards = buildCards(allUniversities);
+          buildFilters(allUniversities);
+          renderCards(allCards);
+        });
+      }
+
+      // 语言切换时重新渲染
+      document.addEventListener('langchange', function() {
+        if (!allCards.length) return;
+        var sel = getSelectedFilters();
+        var filtered = allCards.filter(function(card) {
+          var cardField = card.programZh || '';
+          var cardProvince = card.uni.province || '';
+          if (sel.field && cardField !== sel.field) return false;
+          if (sel.province && cardProvince !== sel.province) return false;
+          return true;
+        });
+        renderCards(filtered);
+      });
+
+      init();
+    })();
+  </script>
+</body>
+</html>

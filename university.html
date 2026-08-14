@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>捷报神州 · 来华留学</title>
+  <meta name="title-zh" content="捷报神州 · 来华留学">
+  <meta name="title-en" content="Victell · Study in China">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <link rel="stylesheet" href="static/css/style.css?v=20260814">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+</head>
+<body>
+  <div id="loader" class="loader">
+    <div class="loader-inner">
+      <div class="loader-seal"><img src="static/img/logo.jpg" alt="Victell logo" class="loader-logo"></div>
+      <div class="loader-text">
+        <span class="loader-zh"><span>风传捷报</span><span class="loader-dot">·</span><span>翼启神州</span></span>
+        <span class="loader-en">For China, Fly Victory!</span>
+      </div>
+      <div class="loader-bar"><span></span></div>
+    </div>
+  </div>
+
+  <header class="navbar" id="navbar">
+    <div class="container nav-inner">
+      <a href="index.html" class="brand">
+        <span class="brand-seal"><img src="static/img/logo.jpg" alt="logo"></span>
+        <span class="brand-text">
+          <span class="brand-zh lang-zh">捷报神州</span>
+          <span class="brand-en lang-en" style="display:none;">Victell</span>
+        </span>
+      </a>
+      <nav class="nav-links">
+        <a href="index.html"><span class="nav-label" data-zh="主页" data-en="Home">主页</span></a>
+        <a href="map.html"><span class="nav-label" data-zh="城市" data-en="Cities">城市</span></a>
+        <a href="universities.html"><span class="nav-label" data-zh="大学" data-en="Universities">大学</span></a>
+        <a href="programs.html"><span class="nav-label" data-zh="专业" data-en="Programs">专业</span></a>
+        <a href="why-china.html"><span class="nav-label" data-zh="为什么中国" data-en="Why China">为什么中国</span></a>
+        <a href="about.html"><span class="nav-label" data-zh="我们是谁" data-en="About">我们是谁</span></a>
+      </nav>
+      <div class="nav-actions">
+        <div class="lang-switch" id="langSwitch" title="切换语言 / Switch Language">
+          <button type="button" data-lang="zh" class="active">中</button>
+          <span class="lang-divider">·</span>
+          <button type="button" data-lang="en">EN</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="main">
+
+<!-- ============================== Hero ============================== -->
+<section class="uni-detail-hero">
+  <div class="uni-detail-hero-bg">
+    <img id="heroCampusImg" src="" alt="" data-alt-en="">
+  </div>
+  <div class="uni-detail-hero-content">
+    <div class="container">
+      <div class="uni-detail-row">
+        <div class="uni-detail-seal"><img id="heroBadgeImg" src="" alt="" data-alt-en=""></div>
+        <div>
+          <h1 class="uni-detail-name lang-zh" id="heroNameZh"></h1>
+          <h1 class="uni-detail-name lang-en" style="display:none;" id="heroNameEn"></h1>
+          <div class="uni-detail-name-sub lang-zh" id="heroNameEnSub"></div>
+          <div class="uni-detail-tags" id="heroTags"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== 快速数据条 ============================== -->
+<section class="uni-stats-bar">
+  <div class="container">
+    <div class="uni-stats-grid" id="statsGrid"></div>
+  </div>
+</section>
+
+<!-- ============================== 主体 ============================== -->
+<section class="uni-detail-body">
+  <div class="container">
+    <div class="uni-detail-grid">
+      <div class="uni-detail-main">
+
+        <!-- 壹·院校概况 -->
+        <div class="uni-detail-section">
+          <h3><span class="h3-idx lang-zh">壹</span><span class="h3-idx lang-en" style="display:none;">I</span><span class="lang-zh">院校概况</span><span class="lang-en" style="display:none;">University Overview</span></h3>
+          <p class="lang-zh" id="introZh"></p>
+          <p class="lang-en" style="display:none;font-style:italic;color:var(--dai);" id="introEn"></p>
+        </div>
+
+        <!-- 校徽与校训 -->
+        <div class="uni-badge-motto" id="badgeMotto"></div>
+
+        <!-- 贰·校园风光 -->
+        <div class="uni-detail-section">
+          <h3><span class="h3-idx lang-zh">贰</span><span class="h3-idx lang-en" style="display:none;">II</span><span class="lang-zh">校园风光</span><span class="lang-en" style="display:none;">Campus Scenery</span></h3>
+          <div class="campus-gallery" id="campusGallery"></div>
+        </div>
+
+        <!-- 叁·招生简章 -->
+        <div class="uni-detail-section">
+          <h3><span class="h3-idx lang-zh">叁</span><span class="h3-idx lang-en" style="display:none;">III</span><span class="lang-zh">招生简章</span><span class="lang-en" style="display:none;">Admission Guide</span></h3>
+          <div class="admission-block lang-zh" id="admissionZh"></div>
+          <div class="admission-block lang-en" style="display:none;font-style:italic;color:var(--dai);" id="admissionEn"></div>
+          <div class="admission-actions" id="admissionActions"></div>
+        </div>
+
+        <!-- 肆·奖学金 -->
+        <div class="uni-detail-section">
+          <h3><span class="h3-idx lang-zh">肆</span><span class="h3-idx lang-en" style="display:none;">IV</span><span class="lang-zh">奖学金</span><span class="lang-en" style="display:none;">Scholarships</span></h3>
+          <div class="scholarship-tags" id="scholarshipTags"></div>
+          <p class="lang-zh" style="margin-top:14px;color:var(--dai);font-size:14px;">上述奖学金覆盖学费、住宿、生活费与医疗保险，可通过中国驻外使领馆或院校国际学生办公室申请。</p>
+          <p class="lang-en" style="display:none;margin-top:14px;color:var(--dai);font-size:14px;">The above scholarships cover tuition, accommodation, stipend and medical insurance. Apply via Chinese embassies and consulates or university international student offices.</p>
+        </div>
+
+        <!-- 伍·优势专业介绍 -->
+        <div class="uni-detail-section">
+          <h3><span class="h3-idx lang-zh">伍</span><span class="h3-idx lang-en" style="display:none;">V</span><span class="lang-zh">优势专业</span><span class="lang-en" style="display:none;">Top Programs</span></h3>
+          <div id="programsSection"></div>
+        </div>
+
+      </div>
+
+      <!-- 侧边信息 -->
+      <aside class="uni-detail-aside" id="asideInfo"></aside>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== 相关院校 ============================== -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-eyebrow">RELATED</div>
+      <h2 class="section-title" style="font-size: 28px;">
+        <span class="lang-zh">同列名校</span>
+        <span class="lang-en" style="display:none;">Related Universities</span>
+      </h2>
+    </div>
+    <div class="uni-grid" id="relatedGrid"></div>
+  </div>
+</section>
+
+<!-- ============================== 公司咨询服务 ============================== -->
+<section class="section company-cta-section">
+  <div class="container">
+    <div class="company-cta-card">
+      <div class="company-cta-inner">
+        <div class="company-cta-left">
+          <div class="company-cta-eyebrow"><span class="lang-zh">VICTELL · 留学咨询</span><span class="lang-en" style="display:none;">VICTELL · Study-in-China Consulting</span></div>
+          <h2 class="company-cta-title">
+            <span class="lang-zh">需要专业咨询？我们随时为您服务</span>
+            <span class="lang-en" style="display:none;">Need Professional Advice? We're Here to Help</span>
+          </h2>
+          <p class="company-cta-desc">
+            <span class="lang-zh">以上招生信息全部公开透明，您可自行申请。如需中介咨询、文书润色、签证辅导等增值服务，捷报神州（Victell）专业团队随时为您提供一对一支持。</span>
+            <span class="lang-en" style="display:none;">All admission information above is fully transparent — you may apply independently. For value-added services such as consultation, essay polishing, or visa guidance, Victell's expert team is ready to provide one-on-one support.</span>
+          </p>
+        </div>
+        <div class="company-cta-right">
+          <div class="company-contact-item">
+            <div class="contact-label">
+              <span class="lang-zh">公司名称</span>
+              <span class="lang-en" style="display:none;">Company</span>
+            </div>
+            <div class="contact-value"><span class="lang-zh">捷报神州 Victell</span><span class="lang-en" style="display:none;">Victell</span></div>
+          </div>
+          <div class="company-contact-item">
+            <div class="contact-label">
+              <span class="lang-zh">咨询微信</span>
+              <span class="lang-en" style="display:none;">WeChat</span>
+            </div>
+            <div class="contact-value">victell-consult</div>
+          </div>
+          <div class="company-contact-item">
+            <div class="contact-label">
+              <span class="lang-zh">邮箱</span>
+              <span class="lang-en" style="display:none;">Email</span>
+            </div>
+            <div class="contact-value">consult@victell.cn</div>
+          </div>
+          <div class="company-contact-item">
+            <div class="contact-label">
+              <span class="lang-zh">地址</span>
+              <span class="lang-en" style="display:none;">Address</span>
+            </div>
+            <div class="contact-value">
+              <span class="lang-zh">江西省南昌市青山湖区香溢花城一区九栋</span>
+              <span class="lang-en" style="display:none;">Building 9, Zone 1, Xiangyi Huacheng, Qingshanhu District, Nanchang, Jiangxi, China</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="company-cta-actions">
+        <a href="about.html" class="btn btn-primary">
+          <span class="lang-zh">了解公司</span><span class="lang-en" style="display:none;">About Us</span>
+        </a>
+        <a id="ctaApplyLink" href="#" target="_blank" rel="noopener noreferrer" class="btn btn-ghost" onclick="event.preventDefault(); window.open(this.href,'_blank');">
+          <span class="lang-zh">访问学校官网申请</span><span class="lang-en" style="display:none;">Apply on University Website</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand"><span class="footer-zh lang-zh">捷报神州</span><span class="footer-en lang-en" style="display:none;">Victell</span></div>
+      <div class="footer-addr"><span class="lang-zh">江西省南昌市青山湖区香溢花城一区九栋</span><span class="lang-en" style="display:none;">No.9 Building, Zone 1, Xiangyi Huacheng, Qingshanhu District, Nanchang, Jiangxi</span></div>
+      <div class="footer-copy"><span class="lang-zh">© 2026 捷报神州 · 来华留学指南</span><span class="lang-en" style="display:none;">© 2026 Victell · Study in China Guide</span></div>
+    </div>
+  </footer>
+
+  <script src="static/js/common.js?v=20260814"></script>
+  <script>
+// ===== Page-specific JS for university.html =====
+
+(function() {
+  'use strict';
+
+  var currentUni = null;
+  var currentId = null;
+  var _rendering = false;
+
+  // 获取 URL 参数
+  function getParam(name) {
+    var url = new URL(window.location.href);
+    return url.searchParams.get(name);
+  }
+
+  // 根据 ID 查找大学
+  function findUniversity(id) {
+    var universities = window.APP_DATA.universities;
+    for (var i = 0; i < universities.length; i++) {
+      if (universities[i].id === id) return universities[i];
+    }
+    return null;
+  }
+
+  // 获取当前语言
+  function getLang() {
+    return window.getLang ? window.getLang() : (localStorage.getItem('lang') || 'zh');
+  }
+
+  // 渲染全部内容
+  function renderAll(u) {
+    _rendering = true;
+    currentUni = u;
+    if (!u) {
+      showNotFound();
+      _rendering = false;
+      return;
+    }
+    renderHero(u);
+    renderStats(u);
+    renderIntro(u);
+    renderBadgeMotto(u);
+    renderCampusGallery(u);
+    renderAdmission(u);
+    renderScholarship(u);
+    renderPrograms(u);
+    renderAside(u);
+    renderRelated(u);
+    renderCtaApply(u);
+    updatePageTitle(u);
+    _rendering = false;
+  }
+
+  // 显示未找到
+  function showNotFound() {
+    var main = document.querySelector('.main');
+    if (main) {
+      main.innerHTML = '<div style="text-align:center;padding:120px 20px;">' +
+        '<h2 style="font-family:var(--serif);font-size:28px;color:var(--text);"><span class="lang-zh">未找到该院校</span><span class="lang-en" style="display:none;">University Not Found</span></h2>' +
+        '<p style="margin-top:16px;color:var(--dai);"><span class="lang-zh">请检查链接是否正确，或返回大学列表浏览全部院校。</span><span class="lang-en" style="display:none;">Please check the link or return to browse all universities.</span></p>' +
+        '<a href="universities.html" class="btn btn-primary" style="margin-top:24px;"><span class="lang-zh">浏览全部院校</span><span class="lang-en" style="display:none;">Browse All Universities</span></a>' +
+        '</div>';
+    }
+  }
+
+  // 更新页面标题
+  function updatePageTitle(u) {
+    var lang = getLang();
+    document.title = (lang === 'zh' ? u.name : u.name_en) + ' · ' + (lang === 'zh' ? '捷报神州' : 'Victell');
+    var metaZh = document.querySelector('meta[name="title-zh"]');
+    var metaEn = document.querySelector('meta[name="title-en"]');
+    if (metaZh) metaZh.setAttribute('content', u.name + ' · 捷报神州');
+    if (metaEn) metaEn.setAttribute('content', u.name_en + ' · Victell');
+  }
+
+  // ===== Hero =====
+  function renderHero(u) {
+    var campusImg = document.getElementById('heroCampusImg');
+    var badgeImg = document.getElementById('heroBadgeImg');
+    var nameZh = document.getElementById('heroNameZh');
+    var nameEn = document.getElementById('heroNameEn');
+    var nameEnSub = document.getElementById('heroNameEnSub');
+    var tagsEl = document.getElementById('heroTags');
+
+    if (campusImg) {
+      campusImg.src = u.campus;
+      campusImg.setAttribute('alt', u.name + ' ' + u.name_en + ' Campus');
+      campusImg.setAttribute('data-alt-en', u.name_en + ' Campus');
+      campusImg.setAttribute('data-alt-zh', u.name + ' ' + u.name_en + ' Campus');
+    }
+    if (badgeImg) {
+      badgeImg.src = u.badge;
+      badgeImg.setAttribute('alt', u.name + ' ' + u.name_en + ' Emblem');
+      badgeImg.setAttribute('data-alt-en', u.name_en + ' Emblem');
+      badgeImg.setAttribute('data-alt-zh', u.name + ' ' + u.name_en + ' Emblem');
+    }
+    if (nameZh) nameZh.textContent = u.name;
+    if (nameEn) nameEn.textContent = u.name_en;
+    if (nameEnSub) nameEnSub.textContent = u.name_en;
+
+    if (tagsEl) {
+      var tagsHtml = (u.tags || []).map(function(t) { return '<span class="tag">' + t + '</span>'; }).join('');
+      var lang = getLang();
+      var rankLabel = lang === 'zh' ? '排名 ' + u.ranking : 'Rank ' + u.ranking;
+      tagsHtml += '<span class="tag tag-rank"><span class="lang-zh">排名 ' + u.ranking + '</span><span class="lang-en" style="display:none;">Rank ' + u.ranking + '</span></span>';
+      tagsEl.innerHTML = tagsHtml;
+    }
+  }
+
+  // ===== 快速数据条 =====
+  function renderStats(u) {
+    var grid = document.getElementById('statsGrid');
+    if (!grid) return;
+    var currentYear = new Date().getFullYear();
+    var years = currentYear - u.founded;
+
+    var items = [
+      { num: u.ranking, labelZh: '全国排名', labelEn: 'National Rank' },
+      { num: u.founded, labelZh: '建校年份', labelEn: 'Founded' },
+      { num: years, labelZh: '办学年限', labelEn: 'Years of History' },
+      { num: (u.programs || []).length, labelZh: '优势专业', labelEn: 'Top Programs' },
+      { num: (u.tags || []).length, labelZh: '院校标签', labelEn: 'Tags' }
+    ];
+
+    var html = '';
+    for (var i = 0; i < items.length; i++) {
+      html += '<div class="stat-cell">' +
+        '<div class="stat-num">' + items[i].num + '</div>' +
+        '<div class="stat-label"><span class="lang-zh">' + items[i].labelZh + '</span><span class="lang-en" style="display:none;">' + items[i].labelEn + '</span></div>' +
+        '</div>';
+    }
+    // 省份双语显示
+    html += '<div class="stat-cell">' +
+      '<div class="stat-num lang-zh">' + u.province + '</div>' +
+      '<div class="stat-num lang-en" style="display:none;">' + (u.province_en || u.province) + '</div>' +
+      '<div class="stat-label"><span class="lang-zh">所在省份</span><span class="lang-en" style="display:none;">Province</span></div>' +
+      '</div>';
+
+    grid.innerHTML = html;
+  }
+
+  // ===== 院校概况 =====
+  function renderIntro(u) {
+    var introZh = document.getElementById('introZh');
+    var introEn = document.getElementById('introEn');
+    if (introZh) introZh.textContent = u.intro || '';
+    if (introEn) {
+      if (u.intro_en) {
+        introEn.textContent = u.intro_en;
+        introEn.style.display = '';
+      } else {
+        introEn.style.display = 'none';
+      }
+    }
+  }
+
+  // ===== 校徽与校训 =====
+  function renderBadgeMotto(u) {
+    var el = document.getElementById('badgeMotto');
+    if (!el) return;
+    var mottoEnHtml = '';
+    if (u.motto_en) {
+      mottoEnHtml = '<div class="motto-text lang-en" style="display:none;font-size:18px;">' + u.motto_en + '</div>';
+    }
+    el.innerHTML =
+      '<div class="uni-badge-block">' +
+        '<div class="uni-badge-img"><img src="' + u.badge + '" alt="' + u.name + ' ' + u.name_en + ' Emblem" data-alt-en="' + u.name_en + ' Emblem" data-alt-zh="' + u.name + ' ' + u.name_en + ' Emblem"></div>' +
+        '<div class="uni-badge-meta">' +
+          '<div class="badge-label">' +
+            '<span class="lang-zh">校徽</span><span class="lang-en" style="display:none;">Emblem</span>' +
+            '<span class="lang-zh" style="opacity:.6;"> · </span>' +
+            '<span class="lang-en" style="display:none;opacity:.7;">University Emblem</span>' +
+          '</div>' +
+          '<div class="badge-sub">' +
+            '<span class="lang-zh">' + u.name + ' 标识</span>' +
+            '<span class="lang-en" style="display:none;">' + u.name_en + ' Seal</span>' +
+          '</div>' +
+        '</div>' +
+      '</div>' +
+      '<div class="uni-motto-block">' +
+        '<div class="motto-mark">「</div>' +
+        '<div class="motto-text lang-zh">' + u.motto + '</div>' +
+        mottoEnHtml +
+        '<div class="motto-mark">」</div>' +
+        '<div class="motto-label">' +
+          '<span class="lang-zh">— 校 训 —</span>' +
+          '<span class="lang-en">— University Motto —</span>' +
+        '</div>' +
+      '</div>';
+  }
+
+  // ===== 校园风光 =====
+  function renderCampusGallery(u) {
+    var el = document.getElementById('campusGallery');
+    if (!el) return;
+    var nameEncoded = encodeURIComponent(u.name_en);
+    var lang = getLang();
+
+    el.innerHTML =
+      '<div class="gallery-main">' +
+        '<img src="' + u.campus + '" alt="' + u.name + ' ' + u.name_en + ' Main Campus" data-alt-en="' + u.name_en + ' Main Campus" data-alt-zh="' + u.name + ' · 主校园">' +
+        '<div class="gallery-caption">' +
+          '<span class="lang-zh">' + u.name + ' · 主校园</span>' +
+          '<span class="lang-en" style="display:none;">' + u.name_en + ' · Main Campus</span>' +
+        '</div>' +
+      '</div>' +
+      '<div class="gallery-side">' +
+        '<div class="gallery-cell">' +
+          '<img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=' + nameEncoded + '%20library%20interior%20classical%20Chinese%20reading%20hall%20wooden%20warm%20light&image_size=square" alt="图书馆 Library" data-alt-en="Library" data-alt-zh="图书馆" onerror="if(!this.dataset.fb){this.dataset.fb=1;this.src=\'' + u.campus + '\';}">' +
+          '<div class="gallery-cell-cap"><span class="lang-zh">图书馆</span><span class="lang-en" style="display:none;">Library</span></div>' +
+        '</div>' +
+        '<div class="gallery-cell">' +
+          '<img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=' + nameEncoded + '%20campus%20gateway%20traditional%20Chinese%20gate%20spring%20cherry%20blossom%20stone%20lion&image_size=square" alt="校门 Gate" data-alt-en="Gate" data-alt-zh="校门" onerror="if(!this.dataset.fb){this.dataset.fb=1;this.src=\'' + u.campus + '\';}">' +
+          '<div class="gallery-cell-cap"><span class="lang-zh">校门</span><span class="lang-en" style="display:none;">Gate</span></div>' +
+        '</div>' +
+        '<div class="gallery-cell">' +
+          '<img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=' + nameEncoded + '%20teaching%20building%20Chinese%20architecture%20academy%20golden%20roof&image_size=square" alt="教学楼 Teaching Building" data-alt-en="Teaching Building" data-alt-zh="教学楼" onerror="if(!this.dataset.fb){this.dataset.fb=1;this.src=\'' + u.campus + '\';}">' +
+          '<div class="gallery-cell-cap"><span class="lang-zh">教学楼</span><span class="lang-en" style="display:none;">Teaching Building</span></div>' +
+        '</div>' +
+        '<div class="gallery-cell">' +
+          '<img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=' + nameEncoded + '%20campus%20lake%20lotus%20pavilion%20willow%20Chinese%20garden%20autumn&image_size=square" alt="校园湖景 Lake" data-alt-en="Lake" data-alt-zh="湖光" onerror="if(!this.dataset.fb){this.dataset.fb=1;this.src=\'' + u.campus + '\';}">' +
+          '<div class="gallery-cell-cap"><span class="lang-zh">湖光</span><span class="lang-en" style="display:none;">Lake</span></div>' +
+        '</div>' +
+      '</div>';
+  }
+
+  // ===== 招生简章 =====
+  function renderAdmission(u) {
+    var admissionZh = document.getElementById('admissionZh');
+    var admissionEn = document.getElementById('admissionEn');
+    var actions = document.getElementById('admissionActions');
+
+    if (admissionZh) admissionZh.textContent = u.admission || '';
+    if (admissionEn) {
+      if (u.admission_en) {
+        admissionEn.textContent = u.admission_en;
+        admissionEn.style.display = '';
+      } else {
+        admissionEn.style.display = 'none';
+      }
+    }
+    if (actions && u.apply_url) {
+      actions.innerHTML = '<a href="' + u.apply_url + '" target="_blank" rel="noopener noreferrer" class="btn btn-primary" onclick="event.preventDefault(); window.open(this.href,\'_blank\');">' +
+        '<span class="lang-zh">前往学校官网申请</span><span class="lang-en">Apply on University Website</span>' +
+        '</a>';
+    } else if (actions) {
+      actions.innerHTML = '';
+    }
+  }
+
+  // ===== 奖学金 =====
+  function renderScholarship(u) {
+    var el = document.getElementById('scholarshipTags');
+    if (!el) return;
+    var schZh = u.scholarship ? u.scholarship.split('、') : [];
+    var schEn = u.scholarship_en ? u.scholarship_en.split(',') : [];
+
+    var html = '';
+    for (var i = 0; i < schZh.length; i++) {
+      var zh = schZh[i].trim();
+      var en = (i < schEn.length) ? schEn[i].trim() : zh;
+      html += '<span class="scholarship-tag">' +
+        '<span class="lang-zh">' + zh + '</span>' +
+        '<span class="lang-en" style="display:none;">' + en + '</span>' +
+        '</span>';
+    }
+    el.innerHTML = html;
+  }
+
+  // ===== 优势专业 =====
+  function renderPrograms(u) {
+    var el = document.getElementById('programsSection');
+    if (!el) return;
+    var programs = u.programs || [];
+    var programsEn = u.programs_en || [];
+
+    if (u.programs_intro) {
+      // 翻转卡片模式
+      var cardsHtml = '';
+      for (var i = 0; i < programs.length; i++) {
+        var p = programs[i];
+        var pEn = programsEn[i] || '';
+        var introZh = (u.programs_intro && u.programs_intro[p]) ? u.programs_intro[p] : '';
+        var introEn = (u.programs_intro_en && u.programs_intro_en[p]) ? u.programs_intro_en[p] : '';
+        cardsHtml +=
+          '<div class="program-intro-card" onclick="this.classList.toggle(\'flipped\')">' +
+            '<div class="program-intro-inner">' +
+              '<div class="program-intro-front">' +
+                '<div class="program-intro-head">' +
+                  '<span class="program-intro-idx">' + (i + 1) + '</span>' +
+                  '<div>' +
+                    '<div class="program-intro-name lang-zh">' + p + '</div>' +
+                    (pEn ? '<div class="program-intro-name-en">' + pEn + '</div>' : '') +
+                  '</div>' +
+                '</div>' +
+                '<span class="program-flip-hint"><span class="lang-zh">点击查看详情</span><span class="lang-en" style="display:none;">Click for details</span></span>' +
+              '</div>' +
+              '<div class="program-intro-back">' +
+                '<p class="program-intro-desc lang-zh">' + introZh + '</p>' +
+                (introEn ? '<p class="program-intro-desc lang-en" style="display:none;">' + introEn + '</p>' : '') +
+              '</div>' +
+            '</div>' +
+          '</div>';
+      }
+      el.innerHTML = '<div class="programs-intro-list">' + cardsHtml + '</div>';
+    } else {
+      // 标签链接模式
+      var tagsHtml = '';
+      for (var j = 0; j < programs.length; j++) {
+        var prog = programs[j];
+        var progEn = programsEn[j] || prog;
+        tagsHtml += '<a href="programs.html?field=' + encodeURIComponent(prog) + '" class="program-tag">' +
+          '<span class="lang-zh">' + prog + '</span>' +
+          '<span class="lang-en" style="display:none;">' + progEn + '</span>' +
+          '</a>';
+      }
+      el.innerHTML = '<div class="program-list">' + tagsHtml + '</div>';
+    }
+  }
+
+  // ===== 侧边栏 =====
+  function renderAside(u) {
+    var el = document.getElementById('asideInfo');
+    if (!el) return;
+
+    var tagsHtml = '';
+    for (var i = 0; i < (u.tags || []).length; i++) {
+      tagsHtml += '<span class="aside-tag">' + u.tags[i] + '</span>';
+    }
+
+    var mottoEnHtml = '';
+    if (u.motto_en) {
+      mottoEnHtml = '<div class="aside-value motto-text-side lang-en" style="display:none;font-style:italic;">"' + u.motto_en + '"</div>';
+    }
+
+    el.innerHTML =
+      '<div class="aside-card">' +
+        '<div class="aside-card-title">' +
+          '<span class="lang-zh">学 校 档 案</span>' +
+          '<span class="lang-en">UNIVERSITY PROFILE</span>' +
+        '</div>' +
+        '<div class="aside-row">' +
+          '<div class="aside-label"><span class="lang-zh">所在省份</span><span class="lang-en">Province</span></div>' +
+          '<div class="aside-value"><span class="lang-zh">' + u.province + '</span><span class="lang-en" style="display:none;">' + (u.province_en || u.province) + '</span></div>' +
+        '</div>' +
+        '<div class="aside-row">' +
+          '<div class="aside-label"><span class="lang-zh">建校年份</span><span class="lang-en" style="display:none;">Founded</span></div>' +
+          '<div class="aside-value"><span class="lang-zh">' + u.founded + ' 年</span><span class="lang-en" style="display:none;">Est. ' + u.founded + '</span>' +
+        '</div>' +
+        '<div class="aside-row">' +
+          '<div class="aside-label"><span class="lang-zh">全国排名</span><span class="lang-en">National Rank</span></div>' +
+          '<div class="aside-value"><span class="lang-zh">第 ' + u.ranking + ' 位</span><span class="lang-en">#' + u.ranking + '</span></div>' +
+        '</div>' +
+        '<div class="aside-row">' +
+          '<div class="aside-label"><span class="lang-zh">院校标签</span><span class="lang-en">Tags</span></div>' +
+          '<div class="aside-value">' + tagsHtml + '</div>' +
+        '</div>' +
+        '<div class="aside-row aside-motto">' +
+          '<div class="aside-label"><span class="lang-zh">校训</span><span class="lang-en">Motto</span></div>' +
+          '<div class="aside-value motto-text-side lang-zh">「' + u.motto + '」</div>' +
+          mottoEnHtml +
+        '</div>' +
+      '</div>' +
+      '<div class="aside-card aside-actions">' +
+        '<a href="map.html" class="btn btn-primary btn-block">' +
+          '<span class="lang-zh">在地图上查看</span><span class="lang-en">View on Map</span>' +
+        '</a>' +
+        '<a href="universities.html?province=' + encodeURIComponent(u.province) + '" class="btn btn-ghost btn-block">' +
+          '<span class="lang-zh">同省其他院校</span><span class="lang-en">Other Universities in the Province</span>' +
+        '</a>' +
+        '<a href="why-china.html" class="btn btn-ghost btn-block">' +
+          '<span class="lang-zh">为何选择中国</span><span class="lang-en">Why China</span>' +
+        '</a>' +
+      '</div>' +
+      '<div class="aside-card aside-quick">' +
+        '<div class="aside-card-title">' +
+          '<span class="lang-zh">快 速 链 接</span>' +
+          '<span class="lang-en">QUICK LINKS</span>' +
+        '</div>' +
+        '<a href="#" class="quick-link" onclick="window.scrollTo({top:0,behavior:\'smooth\'});return false;">' +
+          '<span class="lang-zh">↑ 返回顶部</span><span class="lang-en">↑ Back to Top</span>' +
+        '</a>' +
+        '<a href="universities.html" class="quick-link">' +
+          '<span class="lang-zh">浏览全部院校</span><span class="lang-en">All Universities</span>' +
+        '</a>' +
+        '<a href="programs.html" class="quick-link">' +
+          '<span class="lang-zh">按专业查找</span><span class="lang-en">Browse by Program</span>' +
+        '</a>' +
+      '</div>';
+  }
+
+  // ===== 相关院校 =====
+  function renderRelated(u) {
+    var grid = document.getElementById('relatedGrid');
+    if (!grid) return;
+    var universities = window.APP_DATA.universities;
+    var related = [];
+    for (var i = 0; i < universities.length; i++) {
+      if (universities[i].id !== u.id) {
+        related.push(universities[i]);
+        if (related.length >= 3) break;
+      }
+    }
+    var lang = getLang();
+
+    grid.innerHTML = related.map(function(r) {
+      return '<a href="university.html?id=' + r.id + '" class="uni-card">' +
+        '<div class="uni-card-img">' +
+          '<div class="uni-card-rank">' + r.ranking + '</div>' +
+          '<img src="' + r.campus + '" alt="' + r.name + ' ' + r.name_en + ' Campus" data-alt-en="' + r.name_en + ' Campus" data-alt-zh="' + r.name + ' ' + r.name_en + ' Campus">' +
+        '</div>' +
+        '<div class="uni-card-body">' +
+          '<div class="uni-card-row">' +
+            '<div class="uni-card-seal"><img src="' + r.badge + '" alt="' + r.name + ' ' + r.name_en + ' Emblem" data-alt-en="' + r.name_en + ' Emblem" data-alt-zh="' + r.name + ' ' + r.name_en + ' Emblem"></div>' +
+            '<div>' +
+              '<div class="uni-card-name">' +
+                '<span class="lang-zh">' + r.name + '</span>' +
+                '<span class="lang-en" style="display:none;">' + r.name_en + '</span>' +
+              '</div>' +
+              '<div class="uni-card-name-en">' + r.name_en + '</div>' +
+            '</div>' +
+          '</div>' +
+          '<div class="uni-card-motto">' +
+            '<span class="lang-zh">「' + r.motto + '」</span>' +
+            (r.motto_en ? '<span class="lang-en" style="display:none;">"' + r.motto_en + '"</span>' : '') +
+          '</div>' +
+          '<div class="uni-card-meta">' +
+            '<span class="uni-card-province">' +
+              '<span class="lang-zh">' + r.province + '</span>' +
+              '<span class="lang-en" style="display:none;">' + (r.province_en || r.province) + '</span>' +
+            '</span>' +
+            '<span class="uni-card-link"><span class="lang-zh">查看简章</span><span class="lang-en" style="display:none;">View Guide</span> &rarr;</span>' +
+          '</div>' +
+        '</div>' +
+      '</a>';
+    }).join('');
+  }
+
+  // ===== CTA 申请链接 =====
+  function renderCtaApply(u) {
+    var link = document.getElementById('ctaApplyLink');
+    if (link && u.apply_url) {
+      link.setAttribute('href', u.apply_url);
+    }
+  }
+
+  // ===== 初始化 =====
+  function init() {
+    currentId = parseInt(getParam('id'), 10);
+    if (!currentId || isNaN(currentId)) {
+      showNotFound();
+      return;
+    }
+
+    // 等待数据加载
+    function loadAndRender() {
+      var universities = window.APP_DATA.universities;
+      if (universities.length > 0) {
+        var u = findUniversity(currentId);
+        renderAll(u);
+        // 重新应用语言显示
+        if (window.setLang) {
+          window.setLang(getLang());
+        }
+      } else {
+        // 数据未加载，等待
+        if (window.APP_DATA.loadPromise) {
+          window.APP_DATA.loadPromise.then(function() {
+            var u = findUniversity(currentId);
+            renderAll(u);
+            if (window.setLang) {
+              window.setLang(getLang());
+            }
+          });
+        }
+      }
+    }
+
+    loadAndRender();
+  }
+
+  // 监听语言切换事件，重新渲染
+  document.addEventListener('langchange', function(e) {
+    if (_rendering) return;
+    if (currentUni) {
+      renderAll(currentUni);
+    }
+  });
+
+  // 启动
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+  </script>
+</body>
+</html>

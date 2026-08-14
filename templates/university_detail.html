@@ -1,0 +1,390 @@
+{% extends "base.html" %}
+{% block title %}{{ u.name }} · {{ u.name_en }} · 捷报神州{% endblock %}
+{% block title_zh %}{{ u.name }} · 捷报神州{% endblock %}
+{% block title_en %}{{ u.name_en }} · Victell{% endblock %}
+
+{% block content %}
+
+<!-- Hero -->
+<section class="uni-detail-hero">
+  <div class="uni-detail-hero-bg">
+    <img src="{{ u.campus }}" alt="{{ u.name }} {{ u.name_en }} Campus" data-alt-en="{{ u.name_en }} Campus">
+  </div>
+  <div class="uni-detail-hero-content">
+    <div class="container">
+      <div class="uni-detail-row">
+        <div class="uni-detail-seal"><img src="{{ u.badge }}" alt="{{ u.name }} {{ u.name_en }} Emblem" data-alt-en="{{ u.name_en }} Emblem"></div>
+        <div>
+          <h1 class="uni-detail-name lang-zh">{{ u.name }}</h1>
+          <h1 class="uni-detail-name lang-en" style="display:none;">{{ u.name_en }}</h1>
+          <div class="uni-detail-name-sub lang-zh">{{ u.name_en }}</div>
+          <div class="uni-detail-tags">
+            {% for tag in u.tags %}<span class="tag">{{ tag }}</span>{% endfor %}
+            <span class="tag tag-rank">
+              <span class="lang-zh">排名 {{ u.ranking }}</span>
+              <span class="lang-en">Rank {{ u.ranking }}</span>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 快速数据条 -->
+<section class="uni-stats-bar">
+  <div class="container">
+    <div class="uni-stats-grid">
+      <div class="stat-cell">
+        <div class="stat-num">{{ u.ranking }}</div>
+        <div class="stat-label"><span class="lang-zh">全国排名</span><span class="lang-en">National Rank</span></div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-num">{{ u.founded }}</div>
+        <div class="stat-label"><span class="lang-zh">建校年份</span><span class="lang-en">Founded</span></div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-num">{{ (2026 - u.founded) }}</div>
+        <div class="stat-label"><span class="lang-zh">办学年限</span><span class="lang-en">Years of History</span></div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-num">{{ u.programs|length }}</div>
+        <div class="stat-label"><span class="lang-zh">优势专业</span><span class="lang-en">Top Programs</span></div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-num">{{ u.tags|length }}</div>
+        <div class="stat-label"><span class="lang-zh">院校标签</span><span class="lang-en">Tags</span></div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-num lang-zh">{{ u.province }}</div>
+        <div class="stat-num lang-en" style="display:none;">{{ u.province_en }}</div>
+        <div class="stat-label"><span class="lang-zh">所在省份</span><span class="lang-en">Province</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 主体 -->
+<section class="uni-detail-body">
+  <div class="container">
+    <div class="uni-detail-grid">
+      <div class="uni-detail-main">
+
+        <!-- 壹·院校概况 -->
+        <div class="uni-detail-section">
+          <h3><span class="h3-idx lang-zh">壹</span><span class="h3-idx lang-en" style="display:none;">I</span><span class="lang-zh">院校概况</span><span class="lang-en" style="display:none;">University Overview</span></h3>
+          <p class="lang-zh">{{ u.intro }}</p>
+          {% if u.intro_en %}
+          <p class="lang-en" style="display:none;font-style:italic;color:var(--dai);">{{ u.intro_en }}</p>
+          {% endif %}
+        </div>
+
+        <!-- 校徽与校训 -->
+        <div class="uni-badge-motto">
+          <div class="uni-badge-block">
+            <div class="uni-badge-img"><img src="{{ u.badge }}" alt="{{ u.name }} {{ u.name_en }} Emblem" data-alt-en="{{ u.name_en }} Emblem"></div>
+            <div class="uni-badge-meta">
+              <div class="badge-label">
+                <span class="lang-zh">校徽</span><span class="lang-en" style="display:none;">Emblem</span>
+                <span class="lang-zh" style="opacity:.6;"> · </span>
+                <span class="lang-zh" style="opacity:.7;">University Emblem</span>
+              </div>
+              <div class="badge-sub">
+                <span class="lang-zh">{{ u.name }} 标识</span>
+                <span class="lang-en" style="display:none;">{{ u.name_en }} Seal</span>
+              </div>
+            </div>
+          </div>
+          <div class="uni-motto-block">
+            <div class="motto-mark">「</div>
+            <div class="motto-text lang-zh">{{ u.motto }}</div>
+            {% if u.motto_en %}
+            <div class="motto-text lang-en" style="display:none;font-size:18px;">{{ u.motto_en }}</div>
+            {% endif %}
+            <div class="motto-mark">」</div>
+            <div class="motto-label">
+              <span class="lang-zh">— 校 训 —</span>
+              <span class="lang-en">— University Motto —</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 贰·校园风光 -->
+        <div class="uni-detail-section">
+          <h3><span class="h3-idx lang-zh">贰</span><span class="h3-idx lang-en" style="display:none;">II</span><span class="lang-zh">校园风光</span><span class="lang-en" style="display:none;">Campus Scenery</span></h3>
+          <div class="campus-gallery">
+            <div class="gallery-main">
+              <img src="{{ u.campus }}" alt="{{ u.name }} {{ u.name_en }} Main Campus" data-alt-en="{{ u.name_en }} Main Campus">
+              <div class="gallery-caption">
+                <span class="lang-zh">{{ u.name }} · 主校园</span>
+                <span class="lang-en">{{ u.name_en }} · Main Campus</span>
+              </div>
+            </div>
+            <div class="gallery-side">
+              <div class="gallery-cell">
+                <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt={{ u.name_en|urlencode }}%20library%20interior%20classical%20Chinese%20reading%20hall%20wooden%20warm%20light&image_size=square" alt="图书馆 Library" data-alt-en="Library">
+                <div class="gallery-cell-cap"><span class="lang-zh">图书馆</span><span class="lang-en">Library</span></div>
+              </div>
+              <div class="gallery-cell">
+                <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt={{ u.name_en|urlencode }}%20campus%20gateway%20traditional%20Chinese%20gate%20spring%20cherry%20blossom%20stone%20lion&image_size=square" alt="校门 Gate" data-alt-en="Gate">
+                <div class="gallery-cell-cap"><span class="lang-zh">校门</span><span class="lang-en">Gate</span></div>
+              </div>
+              <div class="gallery-cell">
+                <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt={{ u.name_en|urlencode }}%20teaching%20building%20Chinese%20architecture%20academy%20golden%20roof&image_size=square" alt="教学楼 Teaching Building" data-alt-en="Teaching Building">
+                <div class="gallery-cell-cap"><span class="lang-zh">教学楼</span><span class="lang-en">Teaching Building</span></div>
+              </div>
+              <div class="gallery-cell">
+                <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt={{ u.name_en|urlencode }}%20campus%20lake%20lotus%20pavilion%20willow%20Chinese%20garden%20autumn&image_size=square" alt="校园湖景 Lake" data-alt-en="Lake">
+                <div class="gallery-cell-cap"><span class="lang-zh">湖光</span><span class="lang-en">Lake</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 叁·招生简章 -->
+        <div class="uni-detail-section">
+          <h3><span class="h3-idx lang-zh">叁</span><span class="h3-idx lang-en" style="display:none;">III</span><span class="lang-zh">招生简章</span><span class="lang-en" style="display:none;">Admission Guide</span></h3>
+          <div class="admission-block lang-zh">{{ u.admission }}</div>
+          {% if u.admission_en %}
+          <div class="admission-block lang-en" style="display:none;font-style:italic;color:var(--dai);">{{ u.admission_en }}</div>
+          {% endif %}
+          {% if u.apply_url %}
+          <div class="admission-actions">
+            <a href="{{ u.apply_url }}" target="_blank" rel="noopener noreferrer" class="btn btn-primary" onclick="event.preventDefault(); window.open(this.href,'_blank');">
+              <span class="lang-zh">前往学校官网申请</span><span class="lang-en">Apply on University Website</span>
+            </a>
+          </div>
+          {% endif %}
+        </div>
+
+        <!-- 肆·奖学金 -->
+        <div class="uni-detail-section">
+          <h3><span class="h3-idx lang-zh">肆</span><span class="h3-idx lang-en" style="display:none;">IV</span><span class="lang-zh">奖学金</span><span class="lang-en" style="display:none;">Scholarships</span></h3>
+          <div class="scholarship-tags">
+            {% set sch_zh = u.scholarship.split('、') if u.scholarship else [] %}
+            {% set sch_en = u.scholarship_en.split(',') if u.scholarship_en else [] %}
+            {% for s in sch_zh %}
+            <span class="scholarship-tag">
+              <span class="lang-zh">{{ s.strip() }}</span>
+              <span class="lang-en" style="display:none;">{{ sch_en[loop.index0].strip() if loop.index0 < sch_en|length else s.strip() }}</span>
+            </span>
+            {% endfor %}
+          </div>
+          <p class="lang-zh" style="margin-top:14px;color:var(--dai);font-size:14px;">上述奖学金覆盖学费、住宿、生活费与医疗保险，可通过中国驻外使领馆或院校国际学生办公室申请。</p>
+          <p class="lang-en" style="display:none;margin-top:14px;color:var(--dai);font-size:14px;">The above scholarships cover tuition, accommodation, stipend and medical insurance. Apply via Chinese embassies and consulates or university international student offices.</p>
+        </div>
+
+        <!-- 伍·优势专业介绍 -->
+        <div class="uni-detail-section">
+          <h3><span class="h3-idx lang-zh">伍</span><span class="h3-idx lang-en" style="display:none;">V</span><span class="lang-zh">优势专业</span><span class="lang-en" style="display:none;">Top Programs</span></h3>
+          {% if u.programs_intro %}
+          <div class="programs-intro-list">
+            {% for p in u.programs %}
+            <div class="program-intro-card" onclick="this.classList.toggle('flipped')">
+              <div class="program-intro-inner">
+                <div class="program-intro-front">
+                  <div class="program-intro-head">
+                    <span class="program-intro-idx">{{ loop.index }}</span>
+                    <div>
+                      <div class="program-intro-name lang-zh">{{ p }}</div>
+                      {% if u.programs_en and u.programs_en[loop.index0] %}
+                      <div class="program-intro-name-en">{{ u.programs_en[loop.index0] }}</div>
+                      {% endif %}
+                    </div>
+                  </div>
+                  <span class="program-flip-hint"><span class="lang-zh">点击查看详情</span><span class="lang-en">Click for details</span></span>
+                </div>
+                <div class="program-intro-back">
+                  <p class="program-intro-desc lang-zh">{{ u.programs_intro.get(p, '') }}</p>
+                  <p class="program-intro-desc lang-en" style="display:none;">{{ u.programs_intro_en.get(p, '') }}</p>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+          {% else %}
+          <div class="program-list">
+            {% for p in u.programs %}
+            <a href="{{ url_for('programs', field=p) }}" class="program-tag"><span class="lang-zh">{{ p }}</span><span class="lang-en" style="display:none;">{{ u.programs_en[loop.index0] if u.programs_en and loop.index0 < u.programs_en|length else p }}</span></a>
+            {% endfor %}
+          </div>
+          {% endif %}
+        </div>
+
+      </div>
+
+      <!-- 侧边信息 -->
+      <aside class="uni-detail-aside">
+        <div class="aside-card">
+          <div class="aside-card-title">
+            <span class="lang-zh">学 校 档 案</span>
+            <span class="lang-en">UNIVERSITY PROFILE</span>
+          </div>
+          <div class="aside-row">
+            <div class="aside-label"><span class="lang-zh">所在省份</span><span class="lang-en">Province</span></div>
+            <div class="aside-value"><span class="lang-zh">{{ u.province }}</span><span class="lang-en" style="display:none;">{{ u.province_en }}</span></div>
+          </div>
+          <div class="aside-row">
+            <div class="aside-label"><span class="lang-zh">建校年份</span><span class="lang-en">Founded</span></div>
+            <div class="aside-value">{{ u.founded }} <span class="lang-zh">年</span><span class="lang-en">EST</span></div>
+          </div>
+          <div class="aside-row">
+            <div class="aside-label"><span class="lang-zh">全国排名</span><span class="lang-en">National Rank</span></div>
+            <div class="aside-value"><span class="lang-zh">第 {{ u.ranking }} 位</span><span class="lang-en">#{{ u.ranking }}</span></div>
+          </div>
+          <div class="aside-row">
+            <div class="aside-label"><span class="lang-zh">院校标签</span><span class="lang-en">Tags</span></div>
+            <div class="aside-value">
+              {% for tag in u.tags %}<span class="aside-tag">{{ tag }}</span>{% endfor %}
+            </div>
+          </div>
+          <div class="aside-row aside-motto">
+            <div class="aside-label"><span class="lang-zh">校训</span><span class="lang-en">Motto</span></div>
+            <div class="aside-value motto-text-side lang-zh">「{{ u.motto }}」</div>
+            {% if u.motto_en %}
+            <div class="aside-value motto-text-side lang-en" style="display:none;font-style:italic;">"{{ u.motto_en }}"</div>
+            {% endif %}
+          </div>
+        </div>
+
+        <div class="aside-card aside-actions">
+          <a href="{{ url_for('map_view') }}" class="btn btn-primary btn-block">
+            <span class="lang-zh">在地图上查看</span><span class="lang-en">View on Map</span>
+          </a>
+          <a href="{{ url_for('universities', province=u.province) }}" class="btn btn-ghost btn-block">
+            <span class="lang-zh">同省其他院校</span><span class="lang-en">Other Universities in the Province</span>
+          </a>
+          <a href="{{ url_for('why_china') }}" class="btn btn-ghost btn-block">
+            <span class="lang-zh">为何选择中国</span><span class="lang-en">Why China</span>
+          </a>
+        </div>
+
+        <div class="aside-card aside-quick">
+          <div class="aside-card-title">
+            <span class="lang-zh">快 速 链 接</span>
+            <span class="lang-en">QUICK LINKS</span>
+          </div>
+          <a href="#" class="quick-link" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">
+            <span class="lang-zh">↑ 返回顶部</span><span class="lang-en">↑ Back to Top</span>
+          </a>
+          <a href="{{ url_for('universities') }}" class="quick-link">
+            <span class="lang-zh">浏览全部院校</span><span class="lang-en">All Universities</span>
+          </a>
+          <a href="{{ url_for('programs') }}" class="quick-link">
+            <span class="lang-zh">按专业查找</span><span class="lang-en">Browse by Program</span>
+          </a>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- 相关院校 -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-eyebrow">RELATED</div>
+      <h2 class="section-title" style="font-size: 28px;">
+        <span class="lang-zh">同列名校</span>
+        <span class="lang-en">Related Universities</span>
+      </h2>
+    </div>
+    <div class="uni-grid">
+      {% for r in related %}
+      <a href="{{ url_for('university_detail', uid=r.id) }}" class="uni-card">
+        <div class="uni-card-img">
+          <div class="uni-card-rank">{{ r.ranking }}</div>
+          <img src="{{ r.campus }}" alt="{{ r.name }} {{ r.name_en }} Campus" data-alt-en="{{ r.name_en }} Campus">
+        </div>
+        <div class="uni-card-body">
+          <div class="uni-card-row">
+            <div class="uni-card-seal"><img src="{{ r.badge }}" alt="{{ r.name }} {{ r.name_en }} Emblem" data-alt-en="{{ r.name_en }} Emblem"></div>
+            <div>
+              <div class="uni-card-name">
+                <span class="lang-zh">{{ r.name }}</span>
+                <span class="lang-en" style="display:none;">{{ r.name_en }}</span>
+              </div>
+              <div class="uni-card-name-en">{{ r.name_en }}</div>
+            </div>
+          </div>
+          <div class="uni-card-motto">
+            <span class="lang-zh">「{{ r.motto }}」</span>
+            <span class="lang-en" style="display:none;">"{{ r.motto_en }}"</span>
+          </div>
+          <div class="uni-card-meta">
+            <span class="uni-card-province">
+              <span class="lang-zh">{{ r.province }}</span>
+              <span class="lang-en" style="display:none;">{{ r.province_en }}</span>
+            </span>
+            <span class="uni-card-link"><span class="lang-zh">查看简章</span><span class="lang-en" style="display:none;">View Guide</span> →</span>
+          </div>
+        </div>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- 公司咨询服务 -->
+<section class="section company-cta-section">
+  <div class="container">
+    <div class="company-cta-card">
+      <div class="company-cta-inner">
+        <div class="company-cta-left">
+          <div class="company-cta-eyebrow"><span class="lang-zh">VICTELL · 留学咨询</span><span class="lang-en" style="display:none;">VICTELL · Study Abroad Consulting</span></div>
+          <h2 class="company-cta-title">
+            <span class="lang-zh">需要专业咨询？我们随时为您服务</span>
+            <span class="lang-en">Need Professional Advice? We're Here to Help</span>
+          </h2>
+          <p class="company-cta-desc">
+            <span class="lang-zh">以上招生信息全部公开透明，您可自行申请。如需中介咨询、文书润色、签证辅导等增值服务，捷报神州（Victell）专业团队随时为您提供一对一支持。</span>
+            <span class="lang-en">All admission information above is fully transparent — you may apply independently. For value-added services such as consultation, essay polishing, or visa guidance, Victell's expert team is ready to provide one-on-one support.</span>
+          </p>
+        </div>
+        <div class="company-cta-right">
+          <div class="company-contact-item">
+            <div class="contact-label">
+              <span class="lang-zh">公司名称</span>
+              <span class="lang-en">Company</span>
+            </div>
+            <div class="contact-value"><span class="lang-zh">捷报神州 Victell</span><span class="lang-en" style="display:none;">Victell</span></div>
+          </div>
+          <div class="company-contact-item">
+            <div class="contact-label">
+              <span class="lang-zh">咨询微信</span>
+              <span class="lang-en">WeChat</span>
+            </div>
+            <div class="contact-value">victell-consult</div>
+          </div>
+          <div class="company-contact-item">
+            <div class="contact-label">
+              <span class="lang-zh">邮箱</span>
+              <span class="lang-en">Email</span>
+            </div>
+            <div class="contact-value">consult@victell.cn</div>
+          </div>
+          <div class="company-contact-item">
+            <div class="contact-label">
+              <span class="lang-zh">地址</span>
+              <span class="lang-en">Address</span>
+            </div>
+            <div class="contact-value">
+              <span class="lang-zh">江西省南昌市青山湖区香溢花城一区九栋</span>
+              <span class="lang-en">Building 9, Zone 1, Xiangyi Huacheng, Qingshanhu District, Nanchang, Jiangxi</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="company-cta-actions">
+        <a href="{{ url_for('about') }}" class="btn btn-primary">
+          <span class="lang-zh">了解公司</span><span class="lang-en">About Us</span>
+        </a>
+        <a href="{{ u.apply_url }}" target="_blank" rel="noopener noreferrer" class="btn btn-ghost" onclick="event.preventDefault(); window.open(this.href,'_blank');">
+          <span class="lang-zh">访问学校官网申请</span><span class="lang-en">Apply on University Website</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

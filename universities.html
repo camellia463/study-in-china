@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>大学检索 · University Search · 捷报神州</title>
+  <meta name="title-zh" content="大学检索 · 捷报神州">
+  <meta name="title-en" content="University Search · Victell">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <link rel="stylesheet" href="static/css/style.css?v=20260814">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+</head>
+<body>
+
+  <!-- 启动动画 -->
+  <div id="loader" class="loader">
+    <div class="loader-inner">
+      <div class="loader-seal">
+        <img src="static/img/logo.jpg" alt="Victell logo" class="loader-logo">
+      </div>
+      <div class="loader-text">
+        <span class="loader-zh">
+          <span>风传捷报</span>
+          <span class="loader-dot">·</span>
+          <span>翼启神州</span>
+        </span>
+        <span class="loader-en">For China, Fly Victory!</span>
+      </div>
+      <div class="loader-bar"><span></span></div>
+    </div>
+  </div>
+
+  <!-- 导航栏 -->
+  <header class="navbar" id="navbar">
+    <div class="container nav-inner">
+      <a href="index.html" class="brand">
+        <span class="brand-seal">
+          <img src="static/img/logo.jpg" alt="logo">
+        </span>
+        <span class="brand-text">
+          <span class="brand-zh lang-zh">捷报神州</span>
+          <span class="brand-en lang-en" style="display:none;">Victell</span>
+        </span>
+      </a>
+      <nav class="nav-links">
+        <a href="index.html"><span class="nav-label" data-zh="主页" data-en="Home">主页</span></a>
+        <a href="map.html"><span class="nav-label" data-zh="城市" data-en="Cities">城市</span></a>
+        <a href="universities.html" class="active"><span class="nav-label" data-zh="大学" data-en="Universities">大学</span></a>
+        <a href="programs.html"><span class="nav-label" data-zh="专业" data-en="Programs">专业</span></a>
+        <a href="why-china.html"><span class="nav-label" data-zh="为什么中国" data-en="Why China">为什么中国</span></a>
+        <a href="about.html"><span class="nav-label" data-zh="我们是谁" data-en="About">我们是谁</span></a>
+      </nav>
+      <div class="nav-actions">
+        <div class="lang-switch" id="langSwitch" title="切换语言 / Switch Language">
+          <button type="button" data-lang="zh" class="active">中</button>
+          <span class="lang-divider">·</span>
+          <button type="button" data-lang="en">EN</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- 主体内容 -->
+  <main class="main">
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-eyebrow">UNIVERSITIES</div>
+          <h2 class="section-title">
+            <span class="lang-zh">大学检索</span>
+            <span class="lang-en" style="display:none;">University Search</span>
+          </h2>
+          <p class="section-sub">
+            <span class="lang-zh">175 所中国高校 · 按类型、专业、城市自由检索</span>
+            <span class="lang-en" style="display:none;">175 Chinese universities · Search by tier, program or city</span>
+          </p>
+        </div>
+
+        <!-- 搜索框 -->
+        <div class="search-bar">
+          <div class="search-input-wrap">
+            <input type="text" id="uniSearchInput" value="" placeholder="搜索校名 / 专业 / 城市..." data-placeholder-zh="搜索校名 / 专业 / 城市..." data-placeholder-en="Search name / program / city..." class="search-input">
+            <button type="button" class="search-btn" id="searchBtn">
+              <span class="lang-zh">搜索</span><span class="lang-en" style="display:none;">Search</span>
+            </button>
+          </div>
+          <!-- 类型筛选 -->
+          <div class="tier-filters" id="tierFilters">
+            <label class="tier-chip">
+              <input type="checkbox" name="tier" value="C9" onchange="filterUniversities()">
+              <span class="lang-zh">C9联盟</span>
+              <span class="lang-en" style="display:none;">C9 League</span>
+            </label>
+            <label class="tier-chip">
+              <input type="checkbox" name="tier" value="985" onchange="filterUniversities()">
+              <span class="lang-zh">985工程</span>
+              <span class="lang-en" style="display:none;">Project 985</span>
+            </label>
+            <label class="tier-chip">
+              <input type="checkbox" name="tier" value="211" onchange="filterUniversities()">
+              <span class="lang-zh">211工程</span>
+              <span class="lang-en" style="display:none;">Project 211</span>
+            </label>
+            <label class="tier-chip">
+              <input type="checkbox" name="tier" value="双一流" onchange="filterUniversities()">
+              <span class="lang-zh">双一流</span>
+              <span class="lang-en" style="display:none;">Double First-Class</span>
+            </label>
+            <label class="tier-chip">
+              <input type="checkbox" name="tier" value="普通" onchange="filterUniversities()">
+              <span class="lang-zh">综合大学</span>
+              <span class="lang-en" style="display:none;">Comprehensive</span>
+            </label>
+            <label class="tier-chip">
+              <input type="checkbox" name="tier" value="学院" onchange="filterUniversities()">
+              <span class="lang-zh">专业学院</span>
+              <span class="lang-en" style="display:none;">Academy</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- 结果统计 -->
+        <div class="search-meta" id="searchMeta">
+          <span class="lang-zh">共找到 <span id="resultCount">0</span> 所院校</span>
+          <span class="lang-en" style="display:none;"><span id="resultCountEn">0</span> universities found</span>
+        </div>
+
+        <!-- 大学卡片网格 -->
+        <div class="uni-grid" id="uniGrid">
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- 页脚 -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <span class="footer-zh lang-zh">捷报神州</span>
+        <span class="footer-en lang-en" style="display:none;">Victell</span>
+      </div>
+      <div class="footer-addr">
+        <span class="lang-zh">江西省南昌市青山湖区香溢花城一区九栋</span><span class="lang-en" style="display:none;">No.9 Building, Zone 1, Xiangyi Huacheng, Qingshanhu District, Nanchang, Jiangxi</span>
+      </div>
+      <div class="footer-copy"><span class="lang-zh">© 2026 捷报神州 · 来华留学指南</span><span class="lang-en" style="display:none;">© 2026 Victell · Study in China Guide</span></div>
+    </div>
+  </footer>
+
+  <script src="static/js/common.js?v=20260814"></script>
+  <script src="static/js/main.js?v=20260814"></script>
+  <script>
+    /* ============================================================
+       大学检索页 - 客户端筛选与渲染
+       ============================================================ */
+
+    (function initUniversitiesPage() {
+      var tierNames = { "C9": "C9联盟", "985": "985工程", "211": "211工程", "双一流": "双一流", "普通": "综合大学", "学院": "专业学院" };
+      var tierNamesEn = { "C9": "C9 League", "985": "Project 985", "211": "Project 211", "双一流": "Double First-Class", "普通": "Comprehensive", "学院": "Academy" };
+
+      var grid = document.getElementById('uniGrid');
+      var searchInput = document.getElementById('uniSearchInput');
+      var searchBtn = document.getElementById('searchBtn');
+      var resultCountEl = document.getElementById('resultCount');
+      var resultCountEn = document.getElementById('resultCountEn');
+      var allUniversities = [];
+
+      function updateChipStates() {
+        var checkboxes = document.querySelectorAll('#tierFilters input[type="checkbox"]');
+        checkboxes.forEach(function(cb) {
+          cb.closest('.tier-chip').classList.toggle('active', cb.checked);
+        });
+      }
+
+      function getSelectedTiers() {
+        var checkboxes = document.querySelectorAll('#tierFilters input[type="checkbox"]:checked');
+        var tiers = [];
+        checkboxes.forEach(function(cb) { tiers.push(cb.value); });
+        return tiers;
+      }
+
+      function filterUniversities() {
+        updateChipStates();
+        var kw = (searchInput.value || '').trim().toLowerCase();
+        var selectedTiers = getSelectedTiers();
+        var filtered = allUniversities.filter(function(u) {
+          if (selectedTiers.length > 0 && selectedTiers.indexOf(u.tier) === -1) return false;
+          if (kw) {
+            var hay = (u.name + ' ' + (u.name_en || '') + ' ' + u.province + ' ' + (u.province_en || '')).toLowerCase();
+            if (hay.indexOf(kw) === -1) {
+              var programs = (u.programs || []).join(' ').toLowerCase();
+              var programsEn = (u.programs_en || []).join(' ').toLowerCase();
+              if ((programs + ' ' + programsEn).indexOf(kw) === -1) return false;
+            }
+          }
+          return true;
+        });
+        renderUniversities(filtered);
+      }
+
+      function renderUniversities(unis) {
+        var lang = window.getLang ? window.getLang() : (localStorage.getItem('lang') || 'zh');
+        var isEn = lang === 'en';
+
+        resultCountEl.textContent = unis.length;
+        resultCountEn.textContent = unis.length;
+
+        if (!unis.length) {
+          grid.innerHTML = '<div style="grid-column:1/-1;padding:36px;text-align:center;color:var(--dai);font-family:var(--serif);" class="lang-zh">无匹配院校</div><div style="grid-column:1/-1;padding:36px;text-align:center;color:var(--dai);font-family:var(--serif);display:none;" class="lang-en">No results</div>';
+          return;
+        }
+
+        grid.innerHTML = unis.map(function(u) {
+          var nameZh = u.name;
+          var nameEn = u.name_en || '';
+          var motto = u.motto || '';
+          var mottoEn = u.motto_en || '';
+          var tier = u.tier || '普通';
+          var tierZh = tierNames[tier] || tier;
+          var tierEn = tierNamesEn[tier] || tier;
+          var provinceZh = u.province || '';
+          var provinceEn = u.province_en || '';
+          var ranking = u.ranking || '';
+          var badge = u.badge || '';
+          var campus = u.campus || '';
+
+          return '<a href="university.html?id=' + u.id + '" class="uni-card">' +
+            '<div class="uni-card-img">' +
+              '<div class="uni-card-rank">' + ranking + '</div>' +
+              '<img src="' + campus + '" alt="' + nameZh + ' ' + nameEn + ' Campus" data-alt-en="' + nameEn + ' Campus">' +
+            '</div>' +
+            '<div class="uni-card-body">' +
+              '<div class="uni-card-row">' +
+                '<div class="uni-card-seal"><img src="' + badge + '" alt="' + nameZh + ' ' + nameEn + ' Emblem" data-alt-en="' + nameEn + ' Emblem"></div>' +
+                '<div>' +
+                  '<div class="uni-card-name">' +
+                    '<span class="lang-zh">' + nameZh + '</span>' +
+                    '<span class="lang-en" style="display:none;">' + nameEn + '</span>' +
+                  '</div>' +
+                  '<div class="uni-card-name-en">' + nameEn + '</div>' +
+                '</div>' +
+              '</div>' +
+              '<div class="uni-card-motto">' +
+                '<span class="lang-zh">「' + motto + '」</span>' +
+                '<span class="lang-en" style="display:none;">"' + mottoEn + '"</span>' +
+              '</div>' +
+              '<div class="uni-card-tags">' +
+                '<span class="tier-badge tier-' + tier + '"><span class="lang-zh">' + tierZh + '</span><span class="lang-en" style="display:none;">' + tierEn + '</span></span>' +
+                '<span class="uni-card-city"><span class="lang-zh">' + provinceZh + '</span><span class="lang-en" style="display:none;">' + provinceEn + '</span></span>' +
+              '</div>' +
+            '</div>' +
+          '</a>';
+        }).join('');
+
+        reapplyLang();
+      }
+
+      function reapplyLang() {
+        var lang = window.getLang ? window.getLang() : (localStorage.getItem('lang') || 'zh');
+        var isEn = lang === 'en';
+
+        document.querySelectorAll('.lang-zh').forEach(function(el) {
+          el.style.display = isEn ? 'none' : '';
+          var tag = el.tagName.toLowerCase();
+          if (!isEn && (tag === 'span' || tag === 'a' || tag === 'button' || tag === 'label')) {
+            el.style.display = 'inline';
+          } else if (!isEn && (tag === 'p' || tag === 'div' || tag === 'h1' || tag === 'h2' || tag === 'h3' || tag === 'h4' || tag === 'li')) {
+            el.style.display = 'block';
+          }
+        });
+        document.querySelectorAll('.lang-en').forEach(function(el) {
+          el.style.display = isEn ? '' : 'none';
+          var tag = el.tagName.toLowerCase();
+          if (isEn && (tag === 'span' || tag === 'a' || tag === 'button' || tag === 'label')) {
+            el.style.display = 'inline';
+          } else if (isEn && (tag === 'p' || tag === 'div' || tag === 'h1' || tag === 'h2' || tag === 'h3' || tag === 'h4' || tag === 'li')) {
+            el.style.display = 'block';
+          }
+        });
+
+        document.querySelectorAll('img[data-alt-en]').forEach(function(el) {
+          if (!el.hasAttribute('data-alt-zh')) el.setAttribute('data-alt-zh', el.getAttribute('alt') || '');
+          el.setAttribute('alt', isEn ? el.getAttribute('data-alt-en') : el.getAttribute('data-alt-zh'));
+        });
+      }
+
+      function init() {
+        if (!window.APP_DATA || !window.APP_DATA.loadPromise) {
+          setTimeout(init, 100);
+          return;
+        }
+
+        window.APP_DATA.loadPromise.then(function(data) {
+          allUniversities = data || [];
+          renderUniversities(allUniversities);
+        });
+      }
+
+      searchInput.addEventListener('input', filterUniversities);
+      searchBtn.addEventListener('click', filterUniversities);
+
+      // 监听语言切换，重新渲染
+      document.addEventListener('langchange', function() {
+        var selectedTiers = getSelectedTiers();
+        var kw = (searchInput.value || '').trim().toLowerCase();
+        var filtered = allUniversities.filter(function(u) {
+          if (selectedTiers.length > 0 && selectedTiers.indexOf(u.tier) === -1) return false;
+          if (kw) {
+            var hay = (u.name + ' ' + (u.name_en || '') + ' ' + u.province + ' ' + (u.province_en || '')).toLowerCase();
+            if (hay.indexOf(kw) === -1) {
+              var programs = (u.programs || []).join(' ').toLowerCase();
+              var programsEn = (u.programs_en || []).join(' ').toLowerCase();
+              if ((programs + ' ' + programsEn).indexOf(kw) === -1) return false;
+            }
+          }
+          return true;
+        });
+        renderUniversities(filtered);
+      });
+
+      init();
+    })();
+  </script>
+</body>
+</html>

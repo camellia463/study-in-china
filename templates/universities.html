@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+{% block title %}大学检索 · University Search · 捷报神州{% endblock %}
+{% block title_zh %}大学检索 · 捷报神州{% endblock %}
+{% block title_en %}University Search · Victell{% endblock %}
+
+{% block content %}
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-eyebrow">UNIVERSITIES</div>
+      <h2 class="section-title">
+        <span class="lang-zh">大学检索</span>
+        <span class="lang-en" style="display:none;">University Search</span>
+      </h2>
+      <p class="section-sub">
+        <span class="lang-zh">175 所中国高校 · 按类型、专业、城市自由检索</span>
+        <span class="lang-en" style="display:none;">175 Chinese universities · Search by tier, program or city</span>
+      </p>
+    </div>
+
+    <!-- 搜索框 -->
+    <div class="search-bar">
+      <form method="get" action="{{ url_for('universities') }}" id="searchForm">
+        <div class="search-input-wrap">
+          <input type="text" name="q" value="{{ current_q }}" placeholder="搜索校名 / 专业 / 城市..." data-placeholder-zh="搜索校名 / 专业 / 城市..." data-placeholder-en="Search name / program / city..." class="search-input">
+          <button type="submit" class="search-btn">
+            <span class="lang-zh">搜索</span><span class="lang-en" style="display:none;">Search</span>
+          </button>
+        </div>
+        <!-- 类型筛选 -->
+        <div class="tier-filters">
+          {% for tier in all_tiers %}
+          <label class="tier-chip {% if tier in current_tiers %}active{% endif %}">
+            <input type="checkbox" name="tier" value="{{ tier }}" {% if tier in current_tiers %}checked{% endif %} onchange="document.getElementById('searchForm').submit()">
+            <span class="lang-zh">{{ tier_names[tier] }}</span>
+            <span class="lang-en" style="display:none;">{{ tier_names_en[tier] }}</span>
+          </label>
+          {% endfor %}
+        </div>
+      </form>
+    </div>
+
+    <!-- 结果统计 -->
+    <div class="search-meta">
+      <span class="lang-zh">共找到 {{ universities|length }} 所院校</span>
+      <span class="lang-en" style="display:none;">{{ universities|length }} universities found</span>
+    </div>
+
+    <!-- 大学卡片网格 -->
+    <div class="uni-grid">
+      {% for u in universities %}
+      <a href="{{ url_for('university_detail', uid=u.id) }}" class="uni-card">
+        <div class="uni-card-img">
+          <div class="uni-card-rank">{{ u.ranking }}</div>
+          <img src="{{ u.campus }}" alt="{{ u.name }} {{ u.name_en }} Campus" data-alt-en="{{ u.name_en }} Campus">
+        </div>
+        <div class="uni-card-body">
+          <div class="uni-card-row">
+            <div class="uni-card-seal"><img src="{{ u.badge }}" alt="{{ u.name }} {{ u.name_en }} Emblem" data-alt-en="{{ u.name_en }} Emblem"></div>
+            <div>
+              <div class="uni-card-name">
+                <span class="lang-zh">{{ u.name }}</span>
+                <span class="lang-en" style="display:none;">{{ u.name_en }}</span>
+              </div>
+              <div class="uni-card-name-en">{{ u.name_en }}</div>
+            </div>
+          </div>
+          <div class="uni-card-motto">
+            <span class="lang-zh">「{{ u.motto }}」</span>
+            <span class="lang-en" style="display:none;">"{{ u.motto_en }}"</span>
+          </div>
+          <div class="uni-card-tags">
+            <span class="tier-badge tier-{{ u.tier }}"><span class="lang-zh">{{ tier_names[u.tier] }}</span><span class="lang-en" style="display:none;">{{ tier_names_en[u.tier] }}</span></span>
+            <span class="uni-card-city">
+              <span class="lang-zh">{{ u.province }}</span>
+              <span class="lang-en" style="display:none;">{{ u.province_en }}</span>
+            </span>
+          </div>
+        </div>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}

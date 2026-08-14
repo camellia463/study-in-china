@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}捷报神州 · 来华留学{% endblock %}</title>
+  <meta name="title-zh" content="{% block title_zh %}捷报神州 · 来华留学{% endblock %}">
+  <meta name="title-en" content="{% block title_en %}Victell · Study in China{% endblock %}">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}?v=20260807">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+</head>
+<body>
+
+  <!-- 启动动画 -->
+  <div id="loader" class="loader">
+    <div class="loader-inner">
+      <div class="loader-seal">
+        <img src="{{ url_for('static', filename='img/logo.jpg') }}" alt="Victell logo" class="loader-logo">
+      </div>
+      <div class="loader-text">
+        <span class="loader-zh">
+          <span>风传捷报</span>
+          <span class="loader-dot">·</span>
+          <span>翼启神州</span>
+        </span>
+        <span class="loader-en">For China, Fly Victory!</span>
+      </div>
+      <div class="loader-bar"><span></span></div>
+    </div>
+  </div>
+
+  <!-- 导航栏 -->
+  <header class="navbar" id="navbar">
+    <div class="container nav-inner">
+      <a href="{{ url_for('index') }}" class="brand">
+        <span class="brand-seal">
+          <img src="{{ url_for('static', filename='img/logo.jpg') }}" alt="logo">
+        </span>
+        <span class="brand-text">
+          <span class="brand-zh lang-zh">捷报神州</span>
+          <span class="brand-en lang-en" style="display:none;">Victell</span>
+        </span>
+      </a>
+      <nav class="nav-links">
+        <a href="{{ url_for('index') }}" class="{% if request.endpoint == 'index' %}active{% endif %}">
+          <span class="nav-label" data-zh="主页" data-en="Home">主页</span>
+        </a>
+        <a href="{{ url_for('map_view') }}" class="{% if request.endpoint == 'map_view' %}active{% endif %}">
+          <span class="nav-label" data-zh="城市" data-en="Cities">城市</span>
+        </a>
+        <a href="{{ url_for('universities') }}" class="{% if request.endpoint == 'universities' %}active{% endif %}">
+          <span class="nav-label" data-zh="大学" data-en="Universities">大学</span>
+        </a>
+        <a href="{{ url_for('programs') }}" class="{% if request.endpoint == 'programs' %}active{% endif %}">
+          <span class="nav-label" data-zh="专业" data-en="Programs">专业</span>
+        </a>
+        <a href="{{ url_for('why_china') }}" class="{% if request.endpoint == 'why_china' %}active{% endif %}">
+          <span class="nav-label" data-zh="为什么中国" data-en="Why China">为什么中国</span>
+        </a>
+        <a href="{{ url_for('about') }}" class="{% if request.endpoint == 'about' %}active{% endif %}">
+          <span class="nav-label" data-zh="我们是谁" data-en="About">我们是谁</span>
+        </a>
+      </nav>
+      <div class="nav-actions">
+        <div class="lang-switch" id="langSwitch" title="切换语言 / Switch Language">
+          <button type="button" data-lang="zh" class="active">中</button>
+          <span class="lang-divider">·</span>
+          <button type="button" data-lang="en">EN</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- 主体内容 -->
+  <main class="main">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        <div class="flashes">
+          {% for cat, msg in messages %}
+            <div class="flash flash-{{ cat }}">{{ msg }}</div>
+          {% endfor %}
+        </div>
+      {% endif %}
+    {% endwith %}
+    {% block content %}{% endblock %}
+  </main>
+
+  <!-- 页脚 -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <span class="footer-zh lang-zh">捷报神州</span>
+        <span class="footer-en lang-en" style="display:none;">Victell</span>
+      </div>
+      <div class="footer-addr">
+        <span class="lang-zh">江西省南昌市青山湖区香溢花城一区九栋</span><span class="lang-en" style="display:none;">No.9 Building, Zone 1, Xiangyi Huacheng, Qingshanhu District, Nanchang, Jiangxi</span>
+      </div>
+      <div class="footer-copy"><span class="lang-zh">© {{ year }} 捷报神州 · 来华留学指南</span><span class="lang-en" style="display:none;">© {{ year }} Victell · Study in China Guide</span></div>
+    </div>
+  </footer>
+
+  <script src="{{ url_for('static', filename='js/main.js') }}?v=20260802d"></script>
+  {% block extra_js %}{% endblock %}
+</body>
+</html>

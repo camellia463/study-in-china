@@ -1,0 +1,74 @@
+[
+  {
+    "id": 1,
+    "name": "Maria",
+    "name_en": "Maria",
+    "country": "Italy",
+    "country_en": "Italy",
+    "avatar_color": "#7C5CBF",
+    "content": "在清华的两年是我人生最珍贵的时光。导师不仅带我走进人工智能前沿，更带我游历了长城、故宫与敦煌。中国让我看见了一个古老文明与现代科技共生的奇迹。",
+    "content_en": "Two years at Tsinghua have been the most precious time of my life. My advisor led me not only into AI research frontiers, but also to the Great Wall, the Forbidden City and Dunhuang. China showed me a miracle where ancient civilization and modern technology coexist.",
+    "rating": 5,
+    "created_at": "2026-07-29T10:00:00"
+  },
+  {
+    "id": 2,
+    "name": "James",
+    "name_en": "James",
+    "country": "UK",
+    "country_en": "United Kingdom",
+    "avatar_color": "#7BA89C",
+    "content": "复旦的校园像一幅江南水墨画，未名湖畔的春樱、秋日的银杏让我流连。中文虽难，但孔子学院的老师悉心教导，HSK 5 级让我读懂了《诗经》与唐诗。",
+    "content_en": "Fudan's campus is like a Jiangnan ink painting — cherry blossoms in spring, ginkgo in autumn. Mandarin is hard, but the Confucius Institute teachers were patient. HSK 5 let me read the Shijing and Tang poetry.",
+    "rating": 5,
+    "created_at": "2026-07-29T10:00:00"
+  },
+  {
+    "id": 3,
+    "name": "Rahul",
+    "name_en": "Rahul",
+    "country": "India",
+    "country_en": "India",
+    "avatar_color": "#C9A0B5",
+    "content": "中国政府奖学金覆盖了我的学费和住宿，每月还有生活费。我在浙大学计算机，实验室的设备世界一流，毕业后顺利入职杭州一家互联网公司。来中国是我最正确的选择。",
+    "content_en": "The Chinese Government Scholarship covered my tuition and housing, with a monthly stipend. I studied CS at Zhejiang University, where the lab equipment was world-class. After graduation I joined an internet company in Hangzhou. Coming to China was my best decision.",
+    "rating": 5,
+    "created_at": "2026-07-29T10:00:00"
+  },
+  {
+    "id": 4,
+    "name": "Aisha",
+    "name_en": "Aisha",
+    "country": "Pakistan",
+    "country_en": "Pakistan",
+    "avatar_color": "#5E4099",
+    "content": "在北大学医的五年，我感受到了中国医学的严谨与温度。附属医院实习时，带教老师手把手教我临床技能，病人们也总是微笑着鼓励我。毕业后我回国成为了一名医生，用在中国学到的知识服务家乡。",
+    "content_en": "Five years studying medicine at Peking University taught me the rigor and warmth of Chinese medical education. During my hospital internship, mentors guided me hands-on, and patients always encouraged me with smiles. After graduation I returned home as a doctor, serving my community with knowledge gained in China.",
+    "rating": 5,
+    "created_at": "2026-07-29T10:00:00"
+  },
+  {
+    "id": 5,
+    "name": "Kwame",
+    "name_en": "Kwame",
+    "country": "Ghana",
+    "country_en": "Ghana",
+    "avatar_color": "#4A7A6E",
+    "content": "同济大学的土木工程世界顶尖，我在这里学到了桥梁与道路建设的最新技术。上海的国际化氛围让我结识了来自全球的朋友，周末一起探索弄堂美食、外滩夜景。中国给了我改变命运的机会。",
+    "content_en": "Tongji University's civil engineering is world-class — I learned the latest bridge and road construction technologies. Shanghai's international atmosphere let me make friends from around the world, exploring alleyway food and the Bund by night. China gave me the opportunity to change my destiny.",
+    "rating": 5,
+    "created_at": "2026-07-29T10:00:00"
+  },
+  {
+    "id": 6,
+    "name": "Sofia",
+    "name_en": "Sofia",
+    "country": "Brazil",
+    "country_en": "Brazil",
+    "avatar_color": "#9A6E83",
+    "content": "在南京大学学汉语言文学是我做过最浪漫的决定。夫子庙的灯会、秦淮河的画舫、明城墙的落日，都成了我论文里的素材。中文打开了我理解东方世界的窗，也让我成为了一名中葡翻译。",
+    "content_en": "Studying Chinese Language and Literature at Nanjing University was the most romantic decision I've made. The lantern festival at Confucius Temple, painted boats on the Qinhuai River, sunsets on the Ming city wall — all became material for my thesis. Mandarin opened a window to the Eastern world and made me a Chinese-Portuguese translator.",
+    "rating": 5,
+    "created_at": "2026-07-29T10:00:00"
+  }
+]

@@ -1,0 +1,412 @@
+{% extends "base.html" %}
+{% block title %}捷报神州 · 来华留学指南{% endblock %}
+{% block title_zh %}捷报神州 · 来华留学指南{% endblock %}
+{% block title_en %}Victell · Study in China Guide{% endblock %}
+
+{% block content %}
+
+<!-- ============================== Hero ============================== -->
+<section class="hero">
+  <div class="hero-bg" style="background-image: url('{{ universities[0].campus }}');"></div>
+  <div class="hero-overlay"></div>
+  <div class="container hero-content">
+    <h1 class="hero-title lang-zh">
+      <span>风传捷报</span>
+      <span class="hero-dot">·</span>
+      <span>翼启神州</span>
+    </h1>
+    <h1 class="hero-title lang-en" style="display:none;">For China, Fly Victory</h1>
+    <p class="hero-desc lang-zh">
+      汇集中國頂尖 985 / 211 學府招生簡章、校徽校訓、校園風物，<br>
+      為四海學子鋪就一條通往神州大地的求學之路。
+    </p>
+    <p class="hero-desc lang-en" style="display:none;">
+      A curated guide to China's top 985 / 211 universities — admission guides,<br>
+      emblems, mottos and campus scenery. We pave your way to study in China.
+    </p>
+    <div class="hero-actions">
+      <a href="{{ url_for('map_view') }}" class="btn btn-primary">
+        <span class="lang-zh">览九州学府</span><span class="lang-en" style="display:none;">Explore on Map</span>
+      </a>
+      <a href="{{ url_for('universities') }}" class="btn btn-ghost">
+        <span class="lang-zh">阅名校简介</span><span class="lang-en" style="display:none;">Browse Universities</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== 四大主要内容 ============================== -->
+<section class="section section-dark home-pillars-section">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-eyebrow">FOUR PILLARS</div>
+      <h2 class="section-title">
+        <span class="lang-zh">四大内容 · 一站启程</span>
+        <span class="lang-en" style="display:none;">Four Pillars · One Journey</span>
+      </h2>
+      <p class="section-sub">
+        <span class="lang-zh">从主页到城市、从大学到专业，再到我们是谁——层层递进，引你识中国、入名校</span>
+        <span class="lang-en" style="display:none;">From home to city, from universities to programs — step by step into China's top schools</span>
+      </p>
+    </div>
+    <div class="four-pillars">
+      <a href="{{ url_for('index') }}" class="pillar" data-reveal>
+        <div class="pillar-icon">主</div>
+        <h3 class="pillar-title"><span class="lang-zh">主页</span><span class="lang-en" style="display:none;">Home</span></h3>
+        <p class="pillar-desc"><span class="lang-zh">总览来华留学全景，四海学人汇神州。</span><span class="lang-en" style="display:none;">A panoramic view of studying in China.</span></p>
+      </a>
+      <a href="{{ url_for('map_view') }}" class="pillar" data-reveal>
+        <div class="pillar-icon">城</div>
+        <h3 class="pillar-title"><span class="lang-zh">城市</span><span class="lang-en" style="display:none;">City</span></h3>
+        <p class="pillar-desc"><span class="lang-zh">中国版图上点击省份标记，一城一校尽收眼底。</span><span class="lang-en" style="display:none;">Click province markers on the map of China — every city, every school at a glance.</span></p>
+      </a>
+      <a href="{{ url_for('universities') }}" class="pillar" data-reveal>
+        <div class="pillar-icon">校</div>
+        <h3 class="pillar-title"><span class="lang-zh">大学介绍</span><span class="lang-en" style="display:none;">Universities</span></h3>
+        <p class="pillar-desc"><span class="lang-zh">校徽校训、校园风物、招生简章，名校一览无余。</span><span class="lang-en" style="display:none;">Emblems, mottos, campus scenery, admission guides — top universities at a glance.</span></p>
+      </a>
+      <a href="{{ url_for('programs') }}" class="pillar" data-reveal>
+        <div class="pillar-icon">业</div>
+        <h3 class="pillar-title"><span class="lang-zh">专业选择</span><span class="lang-en" style="display:none;">Programs</span></h3>
+        <p class="pillar-desc"><span class="lang-zh">按学科门类筛选院校，量体裁衣定方向。</span><span class="lang-en" style="display:none;">Filter universities by discipline — tailor your own academic direction.</span></p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== 精选院校 ============================== -->
+<section class="section section-dark home-featured-section">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-eyebrow">FEATURED UNIVERSITIES</div>
+      <h2 class="section-title">
+        <span class="lang-zh">名校撷英 · 双一流精选</span>
+        <span class="lang-en" style="display:none;">Featured · Double First-Class</span>
+      </h2>
+      <p class="section-sub">
+        <span class="lang-zh">四所 985 / 211 双一流学府，承载百年文脉，育四海英才</span>
+        <span class="lang-en" style="display:none;">Four 985 / 211 Double First-Class universities carrying a century of heritage</span>
+      </p>
+    </div>
+    <div class="uni-grid">
+      {% for u in universities[:4] %}
+      <a href="{{ url_for('university_detail', uid=u.id) }}" class="uni-card" data-reveal>
+        <div class="uni-card-img">
+          <div class="uni-card-badge">
+            {% for tag in u.tags %}<span class="tag">{{ tag }}</span>{% endfor %}
+          </div>
+          <div class="uni-card-rank">{{ u.ranking }}</div>
+          <img src="{{ u.campus }}" alt="{{ u.name }} {{ u.name_en }} Campus" data-alt-en="{{ u.name_en }} Campus" loading="lazy">
+        </div>
+        <div class="uni-card-body">
+          <div class="uni-card-row">
+            <div class="uni-card-seal"><img src="{{ u.badge }}" alt="{{ u.name }} {{ u.name_en }} Emblem" data-alt-en="{{ u.name_en }} Emblem"></div>
+            <div>
+              <div class="uni-card-name">
+                <span class="lang-zh">{{ u.name }}</span>
+                <span class="lang-en" style="display:none;">{{ u.name_en }}</span>
+              </div>
+              <div class="uni-card-name-en">{{ u.name_en }}</div>
+            </div>
+          </div>
+          <div class="uni-card-motto">
+            <span class="lang-zh">「{{ u.motto }}」</span>
+            <span class="lang-en" style="display:none;">"{{ u.motto_en }}"</span>
+          </div>
+          <p class="uni-card-intro">
+            <span class="lang-zh">{{ u.intro }}</span>
+            <span class="lang-en" style="display:none;">{{ u.intro_en }}</span>
+          </p>
+          <div class="uni-card-meta">
+            <span class="uni-card-province">
+              <span class="lang-zh">{{ u.province }}</span>
+              <span class="lang-en" style="display:none;">{{ u.province_en }}</span>
+            </span>
+            <span class="uni-card-link"><span class="lang-zh">查看简章</span><span class="lang-en" style="display:none;">View Guide</span> →</span>
+          </div>
+        </div>
+      </a>
+      {% endfor %}
+    </div>
+    <div class="center" style="margin-top: 48px;">
+      <a href="{{ url_for('universities') }}" class="btn btn-primary">
+        <span class="lang-zh">查看全部院校</span><span class="lang-en" style="display:none;">View All Universities</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== 为什么选择中国留学（入口卡片，跳转单独页面） ============================== -->
+<section class="section section-dark section-dark-enhanced">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-eyebrow">WHY CHINA</div>
+      <h2 class="section-title">
+        <span class="lang-zh">为什么选择来中国留学</span>
+        <span class="lang-en" style="display:none;">Why Study in China</span>
+      </h2>
+      <p class="section-sub">
+        <span class="lang-zh">五千年文明 · 世界级学府 · 丰厚奖学金 · 广阔就业前景</span>
+        <span class="lang-en" style="display:none;">A 5,000-year civilization · World-class universities · Generous scholarships · Vast prospects</span>
+      </p>
+    </div>
+    <div class="why-china-grid">
+      <div class="why-card" data-reveal>
+        <div class="why-icon">博</div>
+        <div class="why-title"><span class="lang-zh">千年文脉 · 世界名校</span><span class="lang-en" style="display:none;">Millennial Heritage · World-Class Universities</span></div>
+        <div class="why-desc"><span class="lang-zh">中国拥有 3000+ 所高等院校，39 所 985、115 所 211 工程大学，QS世界百强中中国高校占据 6 席。</span><span class="lang-en" style="display:none;">3,000+ higher education institutions, 39 Project 985 universities, 115 Project 211 universities, and 6 in the QS World Top 100.</span></div>
+        <div class="why-more lang-zh">从太学书院到现代学府，中国高等教育承千年文脉而启新章。清华、北大、复旦、上交、浙大、中科大等皆列其中，代表中国高等教育最高水准。2017 年启动"双一流"建设，147 所高校、465 个学科入选，正以全新姿态迈向世界一流。</div>
+        <div class="why-more lang-en" style="display:none;">From ancient academies to modern universities, China carries a millennial scholarly lineage into a new era. Tsinghua, Peking, Fudan, SJTU, ZJU and USTC lead the way. The Double First-Class initiative, launched in 2017, now includes 147 universities and 465 disciplines — nurturing talent from across the world, advancing toward world-class status.</div>
+        <span class="why-expand"><span class="lang-zh">展开</span><span class="lang-en" style="display:none;">More</span> <span class="why-arrow">›</span></span>
+      </div>
+      <div class="why-card" data-reveal>
+        <div class="why-icon">惠</div>
+        <div class="why-title"><span class="lang-zh">学费亲民 · 奖学金丰厚</span><span class="lang-en" style="display:none;">Generous Scholarships</span></div>
+        <div class="why-desc"><span class="lang-zh">中国政府每年为国际学生提供 40,000+ 奖学金名额，覆盖学费、住宿、生活费与医疗保险。</span><span class="lang-en" style="display:none;">40,000+ scholarships per year covering tuition, housing, stipend and medical insurance.</span></div>
+        <div class="why-more lang-zh">奖学金体系分四层：中国政府奖学金（CSC，本科 ¥2,500/月、硕士 ¥3,000/月、博士 ¥3,500/月）、孔子学院奖学金（面向汉语学习者）、省市奖学金（北京、上海、江苏、广东等多省设立）、校级奖学金（清华、北大等名校均有专属项目）。叠加申请，最高可全额覆盖并结余。</div>
+        <div class="why-more lang-en" style="display:none;">Four-tier scholarship system: Chinese Government Scholarship (CSC, ¥2,500/month for undergraduates, ¥3,000 for master's, ¥3,500 for PhD), Confucius Institute Scholarship, Provincial/Municipal Scholarships (Beijing, Shanghai, Jiangsu, Guangdong), and University Scholarships. Stacked together, they can fully cover costs with surplus.</div>
+        <span class="why-expand"><span class="lang-zh">展开</span><span class="lang-en" style="display:none;">More</span> <span class="why-arrow">›</span></span>
+      </div>
+      <div class="why-card" data-reveal>
+        <div class="why-icon">融</div>
+        <div class="why-title"><span class="lang-zh">多元文化 · 安全宜居</span><span class="lang-en" style="display:none;">Multicultural & Livable</span></div>
+        <div class="why-desc"><span class="lang-zh">56 个民族、数千年底蕴，城市治安全球领先，地铁高铁四通八达，留学生活便捷安心。</span><span class="lang-en" style="display:none;">56 ethnic groups, millennia of heritage, world-leading safety, extensive metro and high-speed rail — convenient and livable.</span></div>
+        <div class="why-more lang-zh">中国城市治安全球领先，深夜出行无忧。移动支付、外卖快递、共享单车触手可及，一部手机走天下。42,000 公里高铁网纵横南北，北京到上海 4.5 小时，成都到西安 3 小时。周末可游长城故宫，假期可揽桂林山水、敦煌大漠、九寨彩林——于山河间读懂中国。</div>
+        <div class="why-more lang-en" style="display:none;">World-leading urban safety, cashless convenience, food delivery and shared bikes everywhere. A 42,000 km high-speed rail network links Beijing to Shanghai in 4.5h, Chengdu to Xi'an in 3h. Weekends for the Great Wall and Forbidden City; holidays for Guilin, Dunhuang and Jiuzhaigou — read China through its landscapes.</div>
+        <span class="why-expand"><span class="lang-zh">展开</span><span class="lang-en" style="display:none;">More</span> <span class="why-arrow">›</span></span>
+      </div>
+      <div class="why-card" data-reveal>
+        <div class="why-icon">途</div>
+        <div class="why-title"><span class="lang-zh">一带一路 · 广阔前景</span><span class="lang-en" style="display:none;">Belt and Road Opportunities</span></div>
+        <div class="why-desc"><span class="lang-zh">掌握中文已成全球职场竞争力标志，"一带一路"合作国逾 150 个，中资企业海外人才需求激增。</span><span class="lang-en" style="display:none;">Mandarin is a global career asset. The Belt and Road links 150+ countries, with surging demand from Chinese enterprises going global for bilingual, cross-cultural talent.</span></div>
+        <div class="why-more lang-zh">"一带一路"联通 150+ 国家，中资企业出海需要大量懂中文、通中外的人才。在华留学成为进入跨国企业、外交、贸易、基建领域的金色通行证。中文是全球使用人数最多的语言，HSK 成绩被 1,000+ 海外院校认可——掌握中文，即掌握一把打开 14 亿人口市场与东方智慧的钥匙。</div>
+        <div class="why-more lang-en" style="display:none;">The Belt and Road Initiative links 150+ countries. Chinese enterprises going global urgently need bilingual, cross-cultural talent. Studying in China is a golden pass to multinational firms, diplomacy, trade and infrastructure. Mandarin — the world's most spoken language, with HSK scores recognized by 1,000+ overseas institutions — unlocks a market of 1.4 billion and the wisdom of the East.</div>
+        <span class="why-expand"><span class="lang-zh">展开</span><span class="lang-en" style="display:none;">More</span> <span class="why-arrow">›</span></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== 留学生感言 ============================== -->
+<section class="testimonials-section">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-eyebrow">STUDENT VOICES</div>
+      <h2 class="section-title">
+        <span class="lang-zh">留学生感言</span>
+        <span class="lang-en" style="display:none;">Student Testimonials</span>
+      </h2>
+      <p class="section-sub">
+        <span class="lang-zh">来自四海的学子，在神州大地书写属于自己的中国故事</span>
+        <span class="lang-en" style="display:none;">Students from across the world writing their own China stories</span>
+      </p>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card" data-reveal>
+        <p class="testimonial-text lang-zh">在清华的两年是我人生最珍贵的时光。导师不仅带我走进人工智能前沿，更带我游历了长城、故宫与敦煌。中国让我看见了一个古老文明与现代科技共生的奇迹。</p>
+        <p class="testimonial-text lang-en" style="display:none;">Two years at Tsinghua have been the most precious time of my life. My advisor led me not only into AI research frontiers, but also to the Great Wall, the Forbidden City and Dunhuang. China showed me a miracle where ancient civilization and modern technology coexist.</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">M</div>
+          <div class="testimonial-info">
+            <div class="testimonial-name" data-zh="玛丽亚" data-en="Maria"></div>
+              <div class="testimonial-from" data-zh="意大利 · 清华大学" data-en="Italy · Tsinghua University"></div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card" data-reveal>
+        <p class="testimonial-text lang-zh">复旦的校园像一幅江南水墨画，未名湖畔的春樱、秋日的银杏让我流连。中文虽难，但孔子学院的老师悉心教导，HSK 5 级让我读懂了《诗经》与唐诗。</p>
+        <p class="testimonial-text lang-en" style="display:none;">Fudan's campus is like a Jiangnan ink painting — cherry blossoms in spring, ginkgo in autumn. Mandarin is hard, but the Confucius Institute teachers were patient. HSK 5 let me read the Shijing and Tang poetry.</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">J</div>
+          <div class="testimonial-info">
+            <div class="testimonial-name" data-zh="詹姆斯" data-en="James"></div>
+              <div class="testimonial-from" data-zh="英国 · 复旦大学" data-en="UK · Fudan University"></div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card" data-reveal>
+        <p class="testimonial-text lang-zh">中国政府奖学金覆盖了我的学费和住宿，每月还有生活费。我在浙大学计算机，实验室的设备世界一流，毕业后顺利入职杭州一家互联网公司。来中国是我最正确的选择。</p>
+        <p class="testimonial-text lang-en" style="display:none;">The Chinese Government Scholarship covered my tuition and housing, with a monthly stipend. I studied CS at Zhejiang University, where the lab equipment was world-class. After graduation I joined an internet company in Hangzhou. Coming to China was my best decision.</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">R</div>
+          <div class="testimonial-info">
+            <div class="testimonial-name" data-zh="拉胡尔" data-en="Rahul"></div>
+              <div class="testimonial-from" data-zh="印度 · 浙江大学" data-en="India · Zhejiang University"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonials-more" id="testimonialsMore" style="display:none;">
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <p class="testimonial-text lang-zh">在北大学医的五年，我感受到了中国医学的严谨与温度。附属医院实习时，带教老师手把手教我临床技能，病人们也总是微笑着鼓励我。毕业后我回国成为了一名医生，用在中国学到的知识服务家乡。</p>
+          <p class="testimonial-text lang-en" style="display:none;">Five years studying medicine at Peking University taught me the rigor and warmth of Chinese medical education. Mentors guided me hands-on, patients encouraged me with smiles. I returned home as a doctor, serving my community with knowledge from China.</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar" style="background:#5E4099;">A</div>
+            <div class="testimonial-info">
+              <div class="testimonial-name" data-zh="阿伊莎" data-en="Aisha"></div>
+              <div class="testimonial-from" data-zh="巴基斯坦 · 北京大学" data-en="Pakistan · Peking University"></div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <p class="testimonial-text lang-zh">同济大学的土木工程世界顶尖，我在这里学到了桥梁与道路建设的最新技术。上海的国际化氛围让我结识了来自全球的朋友，周末一起探索弄堂美食、外滩夜景。中国给了我改变命运的机会。</p>
+          <p class="testimonial-text lang-en" style="display:none;">Tongji University's civil engineering is world-class. I learned the latest bridge and road construction technologies. Shanghai's international vibe let me make friends globally, exploring alleyway food and the Bund by night. China gave me the chance to change my destiny.</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar" style="background:#4A7A6E;">K</div>
+            <div class="testimonial-info">
+              <div class="testimonial-name" data-zh="夸梅" data-en="Kwame"></div>
+              <div class="testimonial-from" data-zh="加纳 · 同济大学" data-en="Ghana · Tongji University"></div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <p class="testimonial-text lang-zh">在南京大学学汉语言文学是我做过最浪漫的决定。夫子庙的灯会、秦淮河的画舫、明城墙的落日，都成了我论文里的素材。中文打开了我理解东方世界的窗，也让我成为了一名中葡翻译。</p>
+          <p class="testimonial-text lang-en" style="display:none;">Studying Chinese Language and Literature at Nanjing University was my most romantic decision. The lantern festival at Confucius Temple, painted boats on the Qinhuai River, sunsets on the Ming city wall — all became thesis material. Mandarin opened a window to the East and made me a Chinese-Portuguese translator.</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar" style="background:#9A6E83;">S</div>
+            <div class="testimonial-info">
+              <div class="testimonial-name" data-zh="索菲娅" data-en="Sofia"></div>
+              <div class="testimonial-from" data-zh="巴西 · 南京大学" data-en="Brazil · Nanjing University"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="center" style="margin-top: 40px;">
+      <button class="btn btn-outline" id="showMoreTestimonials">
+        <span class="lang-zh">查看更多感言</span><span class="lang-en" style="display:none;">More Testimonials</span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== FAQ 常见问题 ============================== -->
+<section class="faq-section">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-eyebrow">FAQ</div>
+      <h2 class="section-title">
+        <span class="lang-zh">疑问解答</span>
+        <span class="lang-en" style="display:none;">Frequently Asked Questions</span>
+      </h2>
+      <p class="section-sub">
+        <span class="lang-zh">关于来华留学校园生活的常见疑问，一次性为你解答</span>
+        <span class="lang-en" style="display:none;">Common questions about campus life in China, answered at once</span>
+      </p>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q">
+          <span class="faq-q-icon">+</span>
+          <span><span class="lang-zh">留学生宿舍条件怎么样？</span><span class="lang-en" style="display:none;">What are the dormitory conditions for international students?</span></span>
+        </div>
+        <div class="faq-a">
+          <span class="lang-zh">多数高校为留学生提供专门的留学生公寓，一般为双人间或单人间，配备空调、独立卫浴、热水、书桌衣柜与免费校园 Wi-Fi，部分宿舍楼还设有公共厨房与自习室。宿舍通常位于校园内或步行十分钟以内，安保 24 小时值班，进出需刷卡，安全便利。</span>
+          <span class="lang-en" style="display:none;">Most universities offer dedicated international student dormitories with double or single rooms, air conditioning, en-suite bathroom, hot water, desk and wardrobe, and free campus Wi-Fi. Some buildings have shared kitchens and study lounges. Dorms are on or near campus with 24-hour security and card access.</span>
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">
+          <span class="faq-q-icon">+</span>
+          <span><span class="lang-zh">校园里有哪些餐饮选择？</span><span class="lang-en" style="display:none;">What dining options are available on campus?</span></span>
+        </div>
+        <div class="faq-a">
+          <span class="lang-zh">大学食堂菜系丰富，涵盖川鲁粤淮扬各大菜系，并设有清真窗口与西餐窗口，价格亲民，一顿正餐约 10-25 元。校园周边通常有小吃街、咖啡馆与便利店。部分留学生公寓设有公共厨房，可自行烹饪家乡风味，饮食适应起来十分方便。</span>
+          <span class="lang-en" style="display:none;">University canteens offer diverse Chinese cuisines — Sichuan, Shandong, Cantonese, Huaiyang — plus halal and Western counters, at affordable prices (10-25 RMB per meal). Snack streets, cafés and convenience stores surround the campus. Some dorms have shared kitchens for cooking your own food.</span>
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">
+          <span class="faq-q-icon">+</span>
+          <span><span class="lang-zh">留学生可以参加哪些社团与文化活动？</span><span class="lang-en" style="display:none;">What clubs and cultural activities can international students join?</span></span>
+        </div>
+        <div class="faq-a">
+          <span class="lang-zh">每所高校都有上百个学生社团，涵盖书法、太极、武术、茶艺、汉服、民乐、舞蹈、辩论、志愿服务等。学校常组织留学生文化体验活动，如中秋赏月、春节联欢、端午包粽子、京剧脸谱绘制、博物馆参访与短途旅行，是结交中外朋友、融入校园的好机会。</span>
+          <span class="lang-en" style="display:none;">Each university hosts hundreds of student clubs — calligraphy, tai chi, martial arts, tea ceremony, hanfu, folk music, dance, debate and volunteering. Schools regularly organize cultural events for international students: Mid-Autumn moon viewing, Spring Festival galas, making zongzi (sticky-rice dumplings) for the Dragon Boat Festival, Peking opera mask painting, museum visits and short trips — a great way to make friends and integrate into campus life.</span>
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">
+          <span class="faq-q-icon">+</span>
+          <span><span class="lang-zh">校园网络、通讯和快递方便吗？</span><span class="lang-en" style="display:none;">Are internet, communications and delivery services convenient on campus?</span></span>
+        </div>
+        <div class="faq-a">
+          <span class="lang-zh">校园 Wi-Fi 全覆盖，宿舍可单独办理宽带，月费约 30-80 元。开通中国手机号后可使用微信、支付宝，与中国同学无缝沟通。校园内及门口均设有快递驿站（菜鸟驿站、京东自提柜），淘宝、美团、饿了么等网购与外卖十分发达，日常生活极为便利。</span>
+          <span class="lang-en" style="display:none;">Campus Wi-Fi is fully covered; dorms can subscribe to broadband (30-80 RMB/month). With a Chinese SIM card, WeChat and Alipay make communication with local classmates seamless. Courier stations and self-pickup lockers are on campus, and online shopping and food delivery (Taobao, Meituan, Ele.me) are highly developed, making daily life very convenient.</span>
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">
+          <span class="faq-q-icon">+</span>
+          <span><span class="lang-zh">留学生生病了怎么就医？</span><span class="lang-en" style="display:none;">How do international students get medical care?</span></span>
+        </div>
+        <div class="faq-a">
+          <span class="lang-zh">留学生入学时统一购买综合医疗保险（约 800 元/年），覆盖门诊、住院与意外伤害。每所高校设有校医院，处理常见病与体检，费用低廉；如需专科治疗可转诊至合作三甲医院。校医院与留学生办公室均可协助就医陪诊，部分医院设有国际部提供英语服务。</span>
+          <span class="lang-en" style="display:none;">International students are covered by comprehensive medical insurance (about 800 RMB/year) including outpatient, inpatient and accident care. Each university has an on-campus hospital for common illnesses and check-ups at low cost; referrals to partner tertiary hospitals are available for specialized care. The campus hospital and international office can assist with visits, and some hospitals have international departments with English service.</span>
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">
+          <span class="faq-q-icon">+</span>
+          <span><span class="lang-zh">节假日可以去哪里体验中国文化？</span><span class="lang-en" style="display:none;">Where can I experience Chinese culture during holidays?</span></span>
+        </div>
+        <div class="faq-a">
+          <span class="lang-zh">寒暑假与国庆、五一等长假是出行好时机。可游览故宫长城、江南园林、西安兵马俑、桂林山水、云南少数民族村寨；也可参加学校组织的文化考察营，深入乡村、企业、博物馆。高铁网络覆盖全国，学生证购买火车票享有优惠，是探索神州的绝佳方式。</span>
+          <span class="lang-en" style="display:none;">Winter/summer breaks and National Day and May Day holidays are ideal for travel. Visit the Forbidden City and Great Wall, Jiangnan gardens, Xi'an's Terracotta Army, Guilin's landscapes or Yunnan's ethnic villages. Schools also organize cultural study camps to villages, enterprises and museums. China's high-speed rail network covers the whole country, and student ID offers train-ticket discounts — a perfect way to explore China.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}
+
+{% block extra_js %}
+<script>
+// FAQ 折叠
+(function initFAQ() {
+  document.querySelectorAll('.faq-item').forEach(item => {
+    const q = item.querySelector('.faq-q');
+    q.addEventListener('click', () => {
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    });
+  });
+})();
+
+// 留学生感言 — 查看更多
+(function initTestimonials() {
+  const btn = document.getElementById('showMoreTestimonials');
+  const more = document.getElementById('testimonialsMore');
+  if (!btn || !more) return;
+  btn.addEventListener('click', () => {
+    const isShowing = more.style.display !== 'none';
+    more.style.display = isShowing ? 'none' : 'block';
+    btn.querySelectorAll('.lang-zh, .lang-en').forEach(el => {
+      el.textContent = isShowing
+        ? (el.classList.contains('lang-zh') ? '查看更多感言' : 'More Testimonials')
+        : (el.classList.contains('lang-zh') ? '收起' : 'Show Less');
+    });
+  });
+})();
+
+// why 卡片展开
+(function initWhyCards() {
+  document.querySelectorAll('.why-card').forEach(card => {
+    const btn = card.querySelector('.why-expand');
+    if (!btn) return;
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const expanded = card.classList.toggle('expanded');
+      btn.querySelectorAll('.lang-zh, .lang-en').forEach(el => {
+        el.textContent = expanded
+          ? (el.classList.contains('lang-zh') ? '收起' : 'Less')
+          : (el.classList.contains('lang-zh') ? '展开' : 'More');
+      });
+    });
+  });
+})();
+</script>
+{% endblock %}

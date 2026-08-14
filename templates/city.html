@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+{% block title %}{{ province }} 高校 · Universities{% endblock %}
+{% block title_zh %}{{ province }} 高校 · 捷报神州{% endblock %}
+{% block title_en %}Universities in {{ province_en }} · Victell{% endblock %}
+
+{% block content %}
+{% set tier_names_en = {"C9": "C9 League", "985": "Project 985", "211": "Project 211", "双一流": "Double First-Class", "普通": "Comprehensive", "学院": "Academy"} %}
+
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-eyebrow">CITY</div>
+      <h2 class="section-title">
+        <span class="lang-zh">{{ province }} 的大学</span>
+        <span class="lang-en" style="display:none;">Universities in {{ province_en }}</span>
+      </h2>
+      <p class="section-sub">
+        <span class="lang-zh">{{ universities|length }} 所高校汇聚于此</span>
+        <span class="lang-en" style="display:none;">{{ universities|length }} universities in this city</span>
+      </p>
+    </div>
+
+    <!-- 城市统计 -->
+    <div class="city-stats">
+      {% for group in universities|groupby('tier') %}
+      <div class="city-stat-item">
+        <span class="tier-badge tier-{{ group.grouper }}">
+          <span class="lang-zh">{{ group.grouper }}</span>
+          <span class="lang-en" style="display:none;">{{ tier_names_en.get(group.grouper, group.grouper) }}</span>
+        </span>
+        <span class="city-stat-count">{{ group.list|length }}</span>
+      </div>
+      {% endfor %}
+    </div>
+
+    <!-- 大学卡片网格 -->
+    <div class="uni-grid">
+      {% for u in universities %}
+      <a href="{{ url_for('university_detail', uid=u.id) }}" class="uni-card">
+        <div class="uni-card-img">
+          <div class="uni-card-rank">{{ u.ranking }}</div>
+          <img src="{{ u.campus }}" alt="{{ u.name }} {{ u.name_en }} Campus" data-alt-en="{{ u.name_en }} Campus">
+        </div>
+        <div class="uni-card-body">
+          <div class="uni-card-row">
+            <div class="uni-card-seal"><img src="{{ u.badge }}" alt="{{ u.name }} {{ u.name_en }} Emblem" data-alt-en="{{ u.name_en }} Emblem"></div>
+            <div>
+              <div class="uni-card-name">
+                <span class="lang-zh">{{ u.name }}</span>
+                <span class="lang-en" style="display:none;">{{ u.name_en }}</span>
+              </div>
+              <div class="uni-card-name-en">{{ u.name_en }}</div>
+            </div>
+          </div>
+          <div class="uni-card-motto">
+            <span class="lang-zh">「{{ u.motto }}」</span>
+            <span class="lang-en" style="display:none;">"{{ u.motto_en if u.motto_en else u.motto }}"</span>
+          </div>
+          <div class="uni-card-tags">
+            <span class="tier-badge tier-{{ u.tier }}">
+              <span class="lang-zh">{{ u.tier }}</span>
+              <span class="lang-en" style="display:none;">{{ tier_names_en.get(u.tier, u.tier) }}</span>
+            </span>
+            <span class="uni-card-city"><span class="lang-zh">排名 {{ u.ranking }}</span><span class="lang-en" style="display:none;">Rank {{ u.ranking }}</span></span>
+          </div>
+        </div>
+      </a>
+      {% endfor %}
+    </div>
+
+    <!-- 返回按钮 -->
+    <div class="city-back">
+      <a href="{{ url_for('universities') }}" class="btn btn-ghost">
+        <span class="lang-zh">← 浏览全部大学</span>
+        <span class="lang-en" style="display:none;">← All Universities</span>
+      </a>
+      <a href="{{ url_for('map_view') }}" class="btn btn-ghost">
+        <span class="lang-zh">← 返回城市地图</span>
+        <span class="lang-en" style="display:none;">← Back to Cities</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

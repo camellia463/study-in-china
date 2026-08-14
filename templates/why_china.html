@@ -1,0 +1,437 @@
+{% extends "base.html" %}
+{% block title %}为什么选择中国留学 · Why Study in China · 捷报神州{% endblock %}
+{% block title_zh %}为什么选择中国留学 · 捷报神州{% endblock %}
+{% block title_en %}Why Study in China · Victell{% endblock %}
+
+{% block content %}
+
+<!-- ========================================================== -->
+<!-- a. Hero 区                                                  -->
+<!-- ========================================================== -->
+<section class="why-hero">
+  <div class="container why-hero-content">
+    <div class="why-hero-eyebrow">WHY STUDY IN CHINA</div>
+    <h1 class="why-hero-title lang-zh">为什么选择来中国留学</h1>
+    <div class="why-hero-title-en lang-en" style="display:none;">Why Study in China</div>
+    <p class="why-hero-desc">
+      <span class="lang-zh">五千年文明沉淀，世界级学府云集，丰厚奖学金护航，<br>
+      高铁连通山海，学府初启，翼展八方。</span>
+      <span class="why-hero-desc-en lang-en" style="display:none;">A 5,000-year heritage, world-class universities,<br>
+      generous scholarships, and high-speed rail connecting mountains and seas; the gate opens, wings spread to the world.</span>
+    </p>
+    <div class="why-hero-actions">
+      <a href="{{ url_for('universities') }}" class="why-btn why-btn-primary"><span class="lang-zh">探索院校库</span><span class="lang-en" style="display:none;">Explore Universities</span></a>
+      <a href="{{ url_for('map_view') }}" class="why-btn why-btn-ghost"><span class="lang-zh">地图看中国</span><span class="lang-en" style="display:none;">China on the Map</span></a>
+    </div>
+    <div class="why-hero-scroll">
+      <span class="scroll-line"></span>
+      <span class="scroll-zh lang-zh">向下展开</span><span class="scroll-en lang-en" style="display:none;">Scroll Down</span>
+    </div>
+  </div>
+</section>
+
+<!-- ========================================================== -->
+<!-- b. 数据条                                                   -->
+<!-- ========================================================== -->
+<section class="why-stats">
+  <div class="container why-stats-grid">
+    <div class="why-stat" data-reveal>
+      <div class="why-stat-num">3,000<span>+</span></div>
+      <div class="why-stat-label lang-zh">高等院校</div>
+      <div class="why-stat-label-en lang-en" style="display:none;">Higher Education Institutions</div>
+    </div>
+    <div class="why-stat" data-reveal>
+      <div class="why-stat-num">39</div>
+      <div class="why-stat-label lang-zh">985 工程高校</div>
+      <div class="why-stat-label-en lang-en" style="display:none;">Project 985 Universities</div>
+    </div>
+    <div class="why-stat" data-reveal>
+      <div class="why-stat-num">115</div>
+      <div class="why-stat-label lang-zh">211 工程高校</div>
+      <div class="why-stat-label-en lang-en" style="display:none;">Project 211 Universities</div>
+    </div>
+    <div class="why-stat" data-reveal>
+      <div class="why-stat-num">40,000<span>+</span></div>
+      <div class="why-stat-label lang-zh">奖学金名额</div>
+      <div class="why-stat-label-en lang-en" style="display:none;">Scholarship Places per Year</div>
+    </div>
+    <div class="why-stat" data-reveal>
+      <div class="why-stat-num">150<span>+</span></div>
+      <div class="why-stat-label lang-zh">合作国家</div>
+      <div class="why-stat-label-en lang-en" style="display:none;">Partner Countries</div>
+    </div>
+    <div class="why-stat" data-reveal>
+      <div class="why-stat-num">6</div>
+      <div class="why-stat-label lang-zh">QS 世界百强</div>
+      <div class="why-stat-label-en lang-en" style="display:none;">QS World Top 100 Universities</div>
+    </div>
+  </div>
+</section>
+
+<!-- ========================================================== -->
+<!-- c. 六大理由                                                 -->
+<!-- ========================================================== -->
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-eyebrow">SIX REASONS</div>
+      <h2 class="section-title"><span class="lang-zh">六大理由 · 心向神州</span><span class="lang-en" style="display:none;">Six Reasons · Heart Set on China</span></h2>
+      <p class="section-sub"><span class="lang-zh">从文脉到奖学金，从文化到前景，六重理由让你笃定来华</span><span class="lang-en" style="display:none;">From heritage to scholarships, from culture to careers — six reasons to choose China</span></p>
+    </div>
+    <div class="why-reasons-grid">
+
+      <div class="why-reason-card" data-reveal>
+        <div class="why-reason-icon">脉</div>
+        <h3 class="why-reason-title lang-zh">千年文脉 · 世界名校</h3>
+        <div class="why-reason-title-en lang-en" style="display:none;">A Millennium of Heritage · World-Class Universities</div>
+        <p class="why-reason-desc lang-zh">
+          从太学书院到现代学府，中国高等教育承千年文脉而启新章。3,000+ 所高校、39 所 985、6 所 QS 百强，囊括清华、北大、复旦等世界名校，学术底蕴与前沿研究并行。
+        </p>
+        <p class="why-reason-desc-en lang-en" style="display:none;">
+          From ancient academies to modern universities, China carries a millennial scholarly lineage into a new era. With 3,000+ institutions, 39 Project 985 universities, and 6 in the QS World Top 100 — Tsinghua, Peking, Fudan and more lead the way. The Double First-Class initiative includes 147 universities and 465 disciplines advancing toward world-class status.
+        </p>
+      </div>
+
+      <div class="why-reason-card" data-reveal>
+        <div class="why-reason-icon">惠</div>
+        <h3 class="why-reason-title lang-zh">学费亲民 · 奖学金丰厚</h3>
+        <div class="why-reason-title-en lang-en" style="display:none;">Affordable & Generous Scholarships</div>
+        <p class="why-reason-desc lang-zh">
+          相比欧美，中国学费与生活成本亲民。中国政府每年提供 40,000+ 全额奖学金名额，覆盖学费、住宿、生活费与医保，更有省市、校级奖学金层层叠加。
+        </p>
+        <p class="why-reason-desc-en lang-en" style="display:none;">
+          Lower tuition and living costs, plus 40,000+ full scholarships each year covering tuition, housing, stipend and insurance, plus provincial and university scholarships layered on top.
+        </p>
+      </div>
+
+      <div class="why-reason-card" data-reveal>
+        <div class="why-reason-icon">融</div>
+        <h3 class="why-reason-title lang-zh">多元文化 · 安全宜居</h3>
+        <div class="why-reason-title-en lang-en" style="display:none;">Multicultural & Livable</div>
+        <p class="why-reason-desc lang-zh">
+          56 个民族、八大方言、南北风物千姿百态。中国城市治安全球领先，深夜出行无忧，移动支付、外卖快递触手可及，留学生活便捷安心。
+        </p>
+        <p class="why-reason-desc-en lang-en" style="display:none;">
+          56 ethnic groups, eight major dialects, diverse scenery north and south, world-leading urban safety, worry-free late-night travel, mobile payment and food delivery at your fingertips — a multicultural, convenient and secure place to live and learn.
+        </p>
+      </div>
+
+      <div class="why-reason-card" data-reveal>
+        <div class="why-reason-icon">途</div>
+        <h3 class="why-reason-title lang-zh">一带一路 · 广阔前景</h3>
+        <div class="why-reason-title-en lang-en" style="display:none;">Belt and Road Opportunities</div>
+        <p class="why-reason-desc lang-zh">
+          一带一路联通 150+ 国家，中资企业出海需要大量懂中文、通中外的人才。在华留学成为进入跨国企业、外交、贸易、基建领域的金色通行证。
+        </p>
+        <p class="why-reason-desc-en lang-en" style="display:none;">
+          The Belt and Road Initiative links 150+ countries. Chinese enterprises going global need talents who know Chinese and bridge cultures. Studying in China is a golden pass to multinational firms, diplomacy, trade and infrastructure.
+        </p>
+      </div>
+
+      <div class="why-reason-card" data-reveal>
+        <div class="why-reason-icon">语</div>
+        <h3 class="why-reason-title lang-zh">中文魅力 · 全球通用</h3>
+        <div class="why-reason-title-en lang-en" style="display:none;">The Global Reach of Mandarin</div>
+        <p class="why-reason-desc lang-zh">
+          中文是全球使用人数最多的语言，HSK 成绩被 1,000+ 海外院校认可。掌握中文，即掌握一把打开 14 亿人口市场与东方智慧的钥匙。
+        </p>
+        <p class="why-reason-desc-en lang-en" style="display:none;">
+          Mandarin — the world's most spoken language, with HSK scores recognized by 1,000+ universities worldwide — unlocks a market of 1.4 billion and the wisdom of the East.
+        </p>
+      </div>
+
+      <div class="why-reason-card" data-reveal>
+        <div class="why-reason-icon">通</div>
+        <h3 class="why-reason-title lang-zh">高铁通达 · 山河壮丽</h3>
+        <div class="why-reason-title-en lang-en" style="display:none;">High-Speed Rail & Magnificent Landscapes</div>
+        <p class="why-reason-desc lang-zh">
+          42,000 公里高铁网纵横南北，北京到上海 4.5 小时，成都到西安 3 小时。周末可游长城故宫，假期可揽桂林山水、敦煌大漠、九寨彩林。
+        </p>
+        <p class="why-reason-desc-en lang-en" style="display:none;">
+          A 42,000 km high-speed rail network spans north and south — 4.5 hours from Beijing to Shanghai, 3 hours from Chengdu to Xi'an. Weekends for the Great Wall and Forbidden City, holidays for Guilin's rivers, Dunhuang's desert and Jiuzhai's forests.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ========================================================== -->
+<!-- d. 中国高等教育体系介绍                                     -->
+<!-- ========================================================== -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-eyebrow">HIGHER EDUCATION SYSTEM</div>
+      <h2 class="section-title"><span class="lang-zh">中国高等教育体系</span><span class="lang-en" style="display:none;">China's Higher Education System</span></h2>
+      <p class="section-sub"><span class="lang-zh">从 985 到双一流，三级金字塔筑就学术高地</span><span class="lang-en" style="display:none;">From Project 985 to Double First-Class — a three-tier pyramid of academic excellence</span></p>
+    </div>
+    <div class="why-system">
+
+      <div class="why-system-card" data-reveal>
+        <div class="why-system-badge">985</div>
+        <div class="why-system-body">
+          <h3 class="why-system-title"><span class="lang-zh">985 工程</span><span class="why-system-title-en lang-en" style="display:none;">Project 985</span></h3>
+          <p class="why-system-desc lang-zh">
+            1998 年 5 月由教育部启动，遴选 39 所顶尖研究型大学，旨在建设世界一流学府。清华、北大、复旦、上交、浙大、中科大等皆列其中，代表中国高等教育最高水准。
+          </p>
+          <p class="why-system-desc-en lang-en" style="display:none;">
+            Launched in May 1998 by the Ministry of Education, Project 985 selects 39 top research universities, aiming to build world-class institutions. Tsinghua, Peking, Fudan, SJTU, Zhejiang and USTC are among them, representing the pinnacle of Chinese higher education.
+          </p>
+        </div>
+      </div>
+
+      <div class="why-system-card" data-reveal>
+        <div class="why-system-badge">211</div>
+        <div class="why-system-body">
+          <h3 class="why-system-title"><span class="lang-zh">211 工程</span><span class="why-system-title-en lang-en" style="display:none;">Project 211</span></h3>
+          <p class="why-system-desc lang-zh">
+            1995 年启动，面向 21 世纪重点建设 115 所高等学校和一批重点学科，覆盖各省龙头高校，是 985 之外的国家重点建设序列。
+          </p>
+          <p class="why-system-desc-en lang-en" style="display:none;">
+            Started in 1995 for the 21st century, Project 211 supports 115 key universities and disciplines, covering leading schools in every province — a national key initiative alongside Project 985.
+          </p>
+        </div>
+      </div>
+
+      <div class="why-system-card" data-reveal>
+        <div class="why-system-badge">
+          <span class="lang-zh">双<br>一<br>流</span>
+          <span class="lang-en" style="display:none;font-size:14px;line-height:1.3;">DFC</span>
+        </div>
+        <div class="why-system-body">
+          <h3 class="why-system-title"><span class="lang-zh">双一流建设</span><span class="why-system-title-en lang-en" style="display:none;">Double First-Class</span></h3>
+          <p class="why-system-desc lang-zh">
+            2017 年启动的新时代战略，统筹推进世界一流大学与一流学科建设，147 所高校、465 个学科入选。2022 年启动新一轮建设，取代 985/211 成为新时代建设框架。
+          </p>
+          <p class="why-system-desc-en lang-en" style="display:none;">
+            Launched in 2017, the Double First-Class initiative builds world-class universities and disciplines — 147 universities and 465 disciplines selected. A new round in 2022 replaced 985/211 as the framework for the new era.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ========================================================== -->
+<!-- e. 奖学金体系                                               -->
+<!-- ========================================================== -->
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-eyebrow">SCHOLARSHIP SYSTEM</div>
+      <h2 class="section-title"><span class="lang-zh">奖学金体系 · 四重护航</span><span class="lang-en" style="display:none;">Scholarship System · Fourfold Support</span></h2>
+      <p class="section-sub"><span class="lang-zh">从国家到学校，层层覆盖，让留学之路无忧</span><span class="lang-en" style="display:none;">From national to university level, layered coverage for a worry-free journey</span></p>
+    </div>
+    <div class="why-scholarship-tabs">
+
+      <div class="why-scholarship-card" data-reveal>
+        <div class="why-scholarship-icon">国</div>
+        <h3 class="why-scholarship-title lang-zh">中国政府奖学金</h3>
+        <div class="why-scholarship-title-en lang-en" style="display:none;">Chinese Government Scholarship</div>
+        <ul class="why-scholarship-list">
+          <li><span class="lang-zh">全额覆盖学费、住宿、生活费、医保</span><span class="lang-en" style="display:none;">Full coverage of tuition, housing, stipend and insurance</span></li>
+          <li><span class="lang-zh">本科生 ¥2,500/月 · 硕士 ¥3,000/月 · 博士 ¥3,500/月</span><span class="lang-en" style="display:none;">Undergraduates ¥2,500/month · Master's ¥3,000/month · PhD ¥3,500/month</span></li>
+          <li><span class="lang-zh">经中国驻外使领馆或 CSC 网申</span><span class="lang-en" style="display:none;">Apply via Chinese embassies/consulates or CSC online portal</span></li>
+          <li><span class="lang-zh">每年 40,000+ 名额，覆盖 180+ 国家</span><span class="lang-en" style="display:none;">40,000+ places annually, covering 180+ countries</span></li>
+        </ul>
+      </div>
+
+      <div class="why-scholarship-card" data-reveal>
+        <div class="why-scholarship-icon">孔</div>
+        <h3 class="why-scholarship-title lang-zh">孔子学院奖学金</h3>
+        <div class="why-scholarship-title-en lang-en" style="display:none;">Confucius Institute Scholarship</div>
+        <ul class="why-scholarship-list">
+          <li><span class="lang-zh">面向国际中文教师与汉语学习者</span><span class="lang-en" style="display:none;">For international Chinese teachers and Chinese language learners</span></li>
+          <li><span class="lang-zh">资助汉语国际教育硕士、汉语本科等</span><span class="lang-en" style="display:none;">Funds Master's in Teaching Chinese to Speakers of Other Languages, Chinese-language undergraduate programs, etc.</span></li>
+          <li><span class="lang-zh">需 HSK 成绩，经海外孔子学院推荐</span><span class="lang-en" style="display:none;">Requires HSK scores, recommended by overseas Confucius Institutes</span></li>
+          <li><span class="lang-zh">含学费、住宿、生活费与一次性安置费</span><span class="lang-en" style="display:none;">Covers tuition, housing, stipend and a one-time settlement allowance</span></li>
+        </ul>
+      </div>
+
+      <div class="why-scholarship-card" data-reveal>
+        <div class="why-scholarship-icon">省</div>
+        <h3 class="why-scholarship-title lang-zh">省市奖学金</h3>
+        <div class="why-scholarship-title-en lang-en" style="display:none;">Provincial & Municipal Scholarship</div>
+        <ul class="why-scholarship-list">
+          <li><span class="lang-zh">北京、上海、江苏、广东等多省设立</span><span class="lang-en" style="display:none;">Established by Beijing, Shanghai, Jiangsu, Guangdong and many other provinces</span></li>
+          <li><span class="lang-zh">奖励在本地高校就读的优秀留学生</span><span class="lang-en" style="display:none;">Awards outstanding international students at local universities</span></li>
+          <li><span class="lang-zh">部分省份全额资助，部分按学历分档</span><span class="lang-en" style="display:none;">Some provinces offer full funding, others tier by degree level</span></li>
+          <li><span class="lang-zh">与国家级奖学金可形成补充组合</span><span class="lang-en" style="display:none;">Can be combined with national scholarships as supplementary support</span></li>
+        </ul>
+      </div>
+
+      <div class="why-scholarship-card" data-reveal>
+        <div class="why-scholarship-icon">校</div>
+        <h3 class="why-scholarship-title lang-zh">校级奖学金</h3>
+        <div class="why-scholarship-title-en lang-en" style="display:none;">University Scholarship</div>
+        <ul class="why-scholarship-list">
+          <li><span class="lang-zh">由各高校自主设立、自主评审</span><span class="lang-en" style="display:none;">Independently established and reviewed by each university</span></li>
+          <li><span class="lang-zh">清华、北大、复旦等名校均有专属项目</span><span class="lang-en" style="display:none;">Tsinghua, Peking, Fudan and other top universities have dedicated programs</span></li>
+          <li><span class="lang-zh">覆盖全额、半额、新生奖、学业奖</span><span class="lang-en" style="display:none;">Covers full, half, freshman and academic awards</span></li>
+          <li><span class="lang-zh">申请窗口与录取通知同步开放</span><span class="lang-en" style="display:none;">Application window opens alongside admission notices</span></li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ========================================================== -->
+<!-- f. 文化体验                                                 -->
+<!-- ========================================================== -->
+<section class="section section-dark why-culture-section">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-eyebrow">CULTURAL EXPERIENCE</div>
+      <h2 class="section-title"><span class="lang-zh">文化体验 · 触摸东方</span><span class="lang-en" style="display:none;">Cultural Experience · Touch the Orient</span></h2>
+      <p class="section-sub"><span class="lang-zh">长城故宫、园林功夫、茶道书法，于山河间读懂中国</span><span class="lang-en" style="display:none;">Great Wall, Forbidden City, gardens, kung fu, tea ceremony and calligraphy — read China through its landscapes</span></p>
+    </div>
+    <div class="why-culture-grid">
+
+      <figure class="why-culture-item" data-reveal>
+        <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=Great%20Wall%20of%20China%20winding%20over%20misty%20mountains%20at%20sunrise%20ink%20painting%20style&image_size=landscape_16_9" alt="Great Wall" loading="lazy">
+        <figcaption>
+          <span class="why-culture-zh lang-zh">长城</span>
+          <span class="why-culture-en lang-en" style="display:none;">Great Wall</span>
+        </figcaption>
+      </figure>
+
+      <figure class="why-culture-item" data-reveal>
+        <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=Forbidden%20City%20Beijing%20vermillion%20palace%20roofs%20golden%20tiles%20aerial%20ink%20painting&image_size=landscape_16_9" alt="Forbidden City" loading="lazy">
+        <figcaption>
+          <span class="why-culture-zh lang-zh">故宫</span>
+          <span class="why-culture-en lang-en" style="display:none;">Forbidden City</span>
+        </figcaption>
+      </figure>
+
+      <figure class="why-culture-item" data-reveal>
+        <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=Suzhou%20classical%20garden%20pavilion%20pond%20koi%20willow%20moon%20gate%20ink%20painting&image_size=landscape_16_9" alt="Classical Garden" loading="lazy">
+        <figcaption>
+          <span class="why-culture-zh lang-zh">园林</span>
+          <span class="why-culture-en lang-en" style="display:none;">Classical Garden</span>
+        </figcaption>
+      </figure>
+
+      <figure class="why-culture-item" data-reveal>
+        <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=Shaolin%20kung%20fu%20monk%20martial%20arts%20pose%20temple%20courtyard%20ink%20painting&image_size=landscape_16_9" alt="Kung Fu" loading="lazy">
+        <figcaption>
+          <span class="why-culture-zh lang-zh">功夫</span>
+          <span class="why-culture-en lang-en" style="display:none;">Kung Fu</span>
+        </figcaption>
+      </figure>
+
+      <figure class="why-culture-item" data-reveal>
+        <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=Chinese%20tea%20ceremony%20gongfu%20cha%20teapot%20bamboo%20tray%20porcelain%20cups%20ink%20painting&image_size=landscape_16_9" alt="Tea Ceremony" loading="lazy">
+        <figcaption>
+          <span class="why-culture-zh lang-zh">茶道</span>
+          <span class="why-culture-en lang-en" style="display:none;">Tea Ceremony</span>
+        </figcaption>
+      </figure>
+
+      <figure class="why-culture-item" data-reveal>
+        <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=Chinese%20calligraphy%20brush%20writing%20xuan%20paper%20ink%20stone%20scholar%20study%20ink%20painting&image_size=landscape_16_9" alt="Calligraphy" loading="lazy">
+        <figcaption>
+          <span class="why-culture-zh lang-zh">书法</span>
+          <span class="why-culture-en lang-en" style="display:none;">Calligraphy</span>
+        </figcaption>
+      </figure>
+
+      <figure class="why-culture-item" data-reveal>
+        <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=Chinese%20opera%20Peking%20opera%20painted%20face%20mask%20costume%20stage%20ink%20painting&image_size=landscape_16_9" alt="Peking Opera" loading="lazy">
+        <figcaption>
+          <span class="why-culture-zh lang-zh">京剧</span>
+          <span class="why-culture-en lang-en" style="display:none;">Peking Opera</span>
+        </figcaption>
+      </figure>
+
+      <figure class="why-culture-item" data-reveal>
+        <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=Guilin%20Li%20river%20karst%20mountains%20bamboo%20raft%20fisherman%20ink%20painting%20misty&image_size=landscape_16_9" alt="Landscape" loading="lazy">
+        <figcaption>
+          <span class="why-culture-zh lang-zh">山水</span>
+          <span class="why-culture-en lang-en" style="display:none;">Landscape</span>
+        </figcaption>
+      </figure>
+
+    </div>
+  </div>
+</section>
+
+<!-- ========================================================== -->
+<!-- g. 留学生活                                                 -->
+<!-- ========================================================== -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-eyebrow">STUDENT LIFE</div>
+      <h2 class="section-title"><span class="lang-zh">留学生活 · 衣食住行</span><span class="lang-en" style="display:none;">Student Life · Daily Essentials</span></h2>
+      <p class="section-sub"><span class="lang-zh">从宿舍到餐桌，从地铁到医保，生活无忧方能学有所成</span><span class="lang-en" style="display:none;">From dorms to dining, from transit to insurance — a worry-free life lets you focus on learning</span></p>
+    </div>
+    <div class="why-life-grid">
+
+      <div class="why-life-card" data-reveal>
+        <div class="why-life-icon">宿</div>
+        <h3 class="why-life-title"><span class="lang-zh">住宿</span><span class="why-life-title-en lang-en" style="display:none;">Accommodation</span></h3>
+        <p class="why-life-desc">
+          <span class="lang-zh">多数高校为留学生提供专门公寓，双人间、单人间可选，月租 ¥400–¥2,000。配备空调、独立卫浴、共用厨房，部分院校可申请校外住宿补贴。</span>
+          <span class="lang-en" style="display:none;">Most universities offer dedicated apartments for international students, with double or single rooms available at ¥400–¥2,000/month. Rooms come with air conditioning, en-suite bathrooms and shared kitchens; some schools offer off-campus housing subsidies.</span>
+        </p>
+      </div>
+
+      <div class="why-life-card" data-reveal>
+        <div class="why-life-icon">食</div>
+        <h3 class="why-life-title"><span class="lang-zh">餐饮</span><span class="why-life-title-en lang-en" style="display:none;">Dining</span></h3>
+        <p class="why-life-desc">
+          <span class="lang-zh">校园食堂菜式丰富，一餐 ¥10–¥25 即可吃饱。清真窗口、素食窗口、西餐窗口一应俱全，外卖平台 24 小时配送，南北风味触手可及。</span>
+          <span class="lang-en" style="display:none;">Campus canteens offer a wide variety — a full meal costs ¥10–¥25. Halal, vegetarian and Western counters are all available, and food delivery platforms run 24/7, bringing regional flavors from across China right to your door.</span>
+        </p>
+      </div>
+
+      <div class="why-life-card" data-reveal>
+        <div class="why-life-icon">行</div>
+        <h3 class="why-life-title"><span class="lang-zh">交通</span><span class="why-life-title-en lang-en" style="display:none;">Transport</span></h3>
+        <p class="why-life-desc">
+          <span class="lang-zh">地铁、公交、共享单车三网合一，月均通勤支出 ¥200 内。高铁联通全国主要城市，留学生凭学生证可享部分景区与交通优惠。</span>
+          <span class="lang-en" style="display:none;">Subway, bus and bike-share networks are seamlessly connected, with monthly commuting costs under ¥200. High-speed rail links all major cities, and international students can enjoy discounts at select attractions and on transport with a student ID.</span>
+        </p>
+      </div>
+
+      <div class="why-life-card" data-reveal>
+        <div class="why-life-icon">医</div>
+        <h3 class="why-life-title"><span class="lang-zh">医保</span><span class="why-life-title-en lang-en" style="display:none;">Insurance</span></h3>
+        <p class="why-life-desc">
+          <span class="lang-zh">留学生需购买综合医疗保险（约 ¥800/年），覆盖门诊、住院、意外伤害。校内设医务室，三甲医院遍布各城，就医便捷。</span>
+          <span class="lang-en" style="display:none;">International students are required to purchase comprehensive medical insurance (about ¥800/year), covering outpatient care, hospitalization and accidental injury. Campus clinics and Grade-A tertiary hospitals across cities make medical care easily accessible.</span>
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ========================================================== -->
+<!-- h. CTA 行动号召                                             -->
+<!-- ========================================================== -->
+<section class="why-cta">
+  <div class="container why-cta-content">
+    <div class="why-cta-eyebrow">BEGIN YOUR JOURNEY</div>
+    <h2 class="why-cta-title">
+      <span class="lang-zh"><span>风传捷报</span><span class="cta-dot">·</span><span>翼启神州</span></span>
+      <span class="lang-en" style="display:none;">For China, Fly Victory!</span>
+    </h2>
+    <p class="why-cta-desc">
+      <span class="lang-zh">从院校到专业，从地图到奖学金，<br>
+      让我们陪你踏上中国留学之路。</span>
+      <span class="why-cta-desc-en lang-en" style="display:none;">From universities to programs, from map to scholarships —<br>
+      let us walk with you on your journey to study in China.</span>
+    </p>
+    <div class="why-cta-actions">
+      <a href="{{ url_for('universities') }}" class="why-btn why-btn-primary"><span class="lang-zh">浏览院校库</span><span class="lang-en" style="display:none;">Browse Universities</span></a>
+      <a href="{{ url_for('map_view') }}" class="why-btn why-btn-ghost"><span class="lang-zh">地图看中国</span><span class="lang-en" style="display:none;">China on the Map</span></a>
+      <a href="{{ url_for('programs') }}" class="why-btn why-btn-ghost"><span class="lang-zh">选择专业</span><span class="lang-en" style="display:none;">Choose a Program</span></a>
+    </div>
+  </div>
+</section>
+
+{% endblock %}
