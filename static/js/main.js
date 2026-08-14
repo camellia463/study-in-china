@@ -126,7 +126,7 @@ setTimeout(() => {
   // 点击省份方印 / 省份边界 → 跳转到城市页
   function goToCity(province) {
     if (!province) return;
-    window.location.href = '/city/' + encodeURIComponent(province);
+    window.location.href = 'city.html?province=' + encodeURIComponent(province);
   }
 
   // 点击 pin：跳转到该省份城市页
@@ -194,7 +194,7 @@ setTimeout(() => {
       const altName = lang === 'en' ? (u.name_en || u.name) : u.name;
       const tags = (u.tags || []).slice(0,2).map(t => lang === 'en' ? (TAGS_EN[t] || t) : t).join(' · ');
       return `
-      <a class="all-uni-card" href="/university/${u.id}/">
+      <a class="all-uni-card" href="university.html?id=${u.id}">
         <div class="all-uni-seal"><img src="${u.badge}" alt="${altName}" loading="lazy"></div>
         <div class="all-uni-body">
           <div class="all-uni-name">${name}</div>
