@@ -60,31 +60,31 @@ body {
   font-size: 17px;
   line-height: 1.6;
   color: var(--text-body);
-  background: var(--bg);
+  background: transparent;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
   position: relative;
 }
 
-/* 浮雕背景 — 故宫园林底纹 */
+/* 浮雕背景 — 故宫园林底纹（白灰色柔和浮雕） */
 body::before {
   content: '';
   position: fixed;
   inset: 0;
   z-index: -1;
   background: url('../img/bg2.jpg') center/cover no-repeat;
-  opacity: 0.28;
-  filter: grayscale(1) brightness(1.4) contrast(0.7);
+  opacity: 0.38;
+  filter: grayscale(1) brightness(1.55) contrast(0.65);
   pointer-events: none;
 }
-/* 浮雕背景上叠加白色蒙版，确保内容清晰 */
+/* 浮雕背景上叠加白色蒙版，呈现白灰浮雕质感 */
 body::after {
   content: '';
   position: fixed;
   inset: 0;
   z-index: -1;
-  background: linear-gradient(180deg, rgba(255,255,255,.75) 0%, rgba(255,255,255,.68) 100%);
+  background: linear-gradient(180deg, rgba(255,255,255,.45) 0%, rgba(255,255,255,.38) 100%);
   pointer-events: none;
 }
 
@@ -289,7 +289,7 @@ body.lang-en-active .uni-card-name-en { display: none !important; }
   left: 0;
   right: 0;
   z-index: 1000;
-  background: rgba(255,255,255,.92);
+  background: rgba(255,255,255,.78);
   backdrop-filter: blur(20px) saturate(180%);
   -webkit-backdrop-filter: blur(20px) saturate(180%);
   border-bottom: 1px solid rgba(0,0,0,.06);
@@ -349,7 +349,8 @@ body.lang-en-active .uni-card-name-en { display: none !important; }
   align-items: center;
   gap: 4px;
   flex: 1;
-  justify-content: center;
+  justify-content: flex-start;
+  margin-left: 16px;
 }
 
 .nav-links a {
@@ -434,9 +435,7 @@ body.lang-en-active .uni-card-name-en { display: none !important; }
   align-items: center;
   padding: 120px 0 80px;
   overflow: hidden;
-  background: rgba(255,255,255,.88);
-  backdrop-filter: blur(2px);
-  -webkit-backdrop-filter: blur(2px);
+  background: transparent;
 }
 
 .hero-bg {
@@ -457,9 +456,9 @@ body.lang-en-active .uni-card-name-en { display: none !important; }
   position: absolute;
   inset: 0;
   background: linear-gradient(90deg,
-    rgba(255,255,255,.92) 0%,
-    rgba(255,255,255,.85) 35%,
-    rgba(255,255,255,.35) 65%,
+    rgba(255,255,255,.45) 0%,
+    rgba(255,255,255,.38) 35%,
+    rgba(255,255,255,.30) 65%,
     rgba(255,255,255,.05) 100%
   );
   z-index: 1;
@@ -469,6 +468,8 @@ body.lang-en-active .uni-card-name-en { display: none !important; }
   position: relative;
   z-index: 2;
   max-width: 520px;
+  margin-left: 0 !important;
+  margin-right: auto !important;
 }
 
 .hero-eyebrow {
@@ -563,39 +564,27 @@ body.lang-en-active .uni-card-name-en { display: none !important; }
    ============================================================ */
 .section {
   padding: 80px 0;
-  background: rgba(255,255,255,.82);
-  backdrop-filter: blur(1px);
-  -webkit-backdrop-filter: blur(1px);
+  background: transparent;
 }
 
 .section-dark {
-  background: rgba(245,245,247,.85);
-  backdrop-filter: blur(1px);
-  -webkit-backdrop-filter: blur(1px);
+  background: rgba(245,245,247,.35);
 }
 
 .section-alt {
-  background: rgba(245,245,247,.85);
-  backdrop-filter: blur(1px);
-  -webkit-backdrop-filter: blur(1px);
+  background: rgba(245,245,247,.35);
 }
 
 .section-dark-enhanced {
-  background: rgba(245,245,247,.88);
-  backdrop-filter: blur(1px);
-  -webkit-backdrop-filter: blur(1px);
+  background: rgba(245,245,247,.4);
 }
 
 .home-pillars-section {
-  background: rgba(245,245,247,.88);
-  backdrop-filter: blur(1px);
-  -webkit-backdrop-filter: blur(1px);
+  background: rgba(245,245,247,.4);
 }
 
 .home-featured-section {
-  background: rgba(255,255,255,.82);
-  backdrop-filter: blur(1px);
-  -webkit-backdrop-filter: blur(1px);
+  background: transparent;
 }
 
 .section-head {
