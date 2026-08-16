@@ -57,8 +57,8 @@ html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
 
 body {
   font-family: var(--sans);
-  font-size: 17px;
-  line-height: 1.6;
+  font-size: 16px;
+  line-height: 1.65;
   color: var(--text-body);
   background: transparent;
   -webkit-font-smoothing: antialiased;
@@ -132,11 +132,11 @@ body.lang-en-active .uni-card-name-en { display: none !important; }
   align-items: center;
   justify-content: center;
   gap: 8px;
-  padding: 15px 36px;
-  font-size: 16px;
+  padding: 13px 32px;
+  font-size: 15px;
   font-weight: 600;
   font-family: var(--sans);
-  border-radius: 24px;
+  border-radius: 22px;
   border: none;
   cursor: pointer;
   transition: all .2s ease;
@@ -430,10 +430,10 @@ body.lang-en-active .uni-card-name-en { display: none !important; }
    ============================================================ */
 .hero {
   position: relative;
-  min-height: 80vh;
+  min-height: 76vh;
   display: flex;
   align-items: center;
-  padding: 120px 0 80px;
+  padding: 120px 0 72px;
   overflow: hidden;
   background: transparent;
 }
@@ -562,7 +562,7 @@ body.lang-en-active .uni-card-name-en { display: none !important; }
    9. Sections
    ============================================================ */
 .section {
-  padding: 80px 0;
+  padding: 72px 0;
   background: transparent;
 }
 
@@ -597,7 +597,7 @@ body.lang-en-active .uni-card-name-en { display: none !important; }
 .section-eyebrow {
   font-size: 12px;
   font-weight: 600;
-  letter-spacing: 0.28em;
+  letter-spacing: 0.24em;
   color: var(--primary);
   text-transform: uppercase;
   margin-bottom: 12px;
@@ -607,13 +607,13 @@ body.lang-en-active .uni-card-name-en { display: none !important; }
   font-size: 32px;
   font-weight: 700;
   color: var(--text);
-  margin-bottom: 10px;
+  margin-bottom: 12px;
   letter-spacing: -0.025em;
 }
 
 .section-sub {
-  font-size: 17px;
-  line-height: 1.75;
+  font-size: 16px;
+  line-height: 1.7;
   color: var(--text-muted);
   max-width: 600px;
   margin: 0 auto;
